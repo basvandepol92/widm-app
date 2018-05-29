@@ -6,3 +6,4 @@ Generate component `ng generate component NAME`
 Heroku
 `heroku logs --tail`
 `git push heroku master`
+`heroku local web`
