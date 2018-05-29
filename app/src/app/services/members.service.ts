@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Member } from "../types/member";
+import { environment } from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class MembersService {
@@ -12,7 +13,7 @@ export class MembersService {
       'Access-Control-Allow-Origin':'*'
     })
   };
-  private membersUrl = 'http://' + document.location.hostname + ':5000/api/members';
+  private membersUrl = `https://${environment.url}/api/members`;
 
   create(member: string) {
     console.log(member);
