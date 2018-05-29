@@ -1000,7 +1000,7 @@ var DaysService = /** @class */ (function () {
                 'Access-Control-Allow-Origin': '*'
             })
         };
-        this.daysUrl = 'http://localhost:5000/api/days';
+        this.daysUrl = 'http://' + document.location.hostname + ':5000/api/days';
     }
     DaysService.prototype.getDays = function () {
         return this.http.get(this.daysUrl, this.httpOptions);
@@ -1036,7 +1036,7 @@ var MembersService = /** @class */ (function () {
                 'Access-Control-Allow-Origin': '*'
             })
         };
-        this.membersUrl = 'http://localhost:5000/api/members';
+        this.membersUrl = 'http://' + document.location.hostname + ':5000/api/members';
     }
     MembersService.prototype.create = function (member) {
         console.log(member);

@@ -12,7 +12,7 @@ export class MembersService {
       'Access-Control-Allow-Origin':'*'
     })
   };
-  private membersUrl = 'http://localhost:5000/api/members';
+  private membersUrl = 'http://' + document.location.hostname + ':5000/api/members';
 
   create(member: string) {
     console.log(member);
