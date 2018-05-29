@@ -22,7 +22,7 @@ MongoClient.connect(db.url, (err, database) => {
     require('./service/routes')(app, database);
     app.use(express.static(__dirname + '/app/dist/widm-app'));
     app.get('/*', function(req, res) {
-        res.sendFile(path.join(__dirname + '/app/dist/widm-app/index.html'));
+        res.sendFile(path.join(__dirname + '/dist/widm-app/index.html'));
     });
     app.listen(process.env.PORT || 5000)
 });
