@@ -1,0 +1,5 @@
+<ul *ngIf="members">
+  <li *ngFor="let member of members">
+    <a routerLink="/days/{{member._id}}">{{ member.name }}</a>
+  </li>
+</ul>

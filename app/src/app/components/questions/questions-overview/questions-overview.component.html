@@ -1,0 +1,6 @@
+<h2>Selecteer een dag</h2>
+<ul *ngIf="days">
+  <li *ngFor="let day of days">
+    <a routerLink="/questions/{{day._id}}">{{ day.Description }}</a>
+  </li>
+</ul>

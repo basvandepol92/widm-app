@@ -1,0 +1,7 @@
+<h2>Wie is de Mol</h2>
+
+<ul *ngIf="days">
+  <li *ngFor="let day of days">
+    <a routerLink="/questions/{{memberId}}/{{day._id}}">{{ day.Description }}</a>
+  </li>
+</ul>
