@@ -6,7 +6,7 @@ const db = require('./config/db');
 const cors = require('cors')
 
 const app = express();
-const port = 2222;
+//const port = 2222;
 const corsOptions = {
     origin: 'http://localhost:4200',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -19,9 +19,10 @@ MongoClient.connect(db.url, (err, database) => {
     if (err) return console.log(err);
 
     require('./service/routes')(app, database);
-    app.listen(port, () => {
+    /*app.listen(port, () => {
         console.log('We are live on ' + port);
-    });
+    });*/
+    app.listen(process.env.PORT || 5000)
 });
 
 
