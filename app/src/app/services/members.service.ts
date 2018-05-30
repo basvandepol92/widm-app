@@ -13,7 +13,7 @@ export class MembersService {
       'Access-Control-Allow-Origin':'*'
     })
   };
-  private membersUrl = `https://${environment.url}/api/members`;
+  private membersUrl = `${environment.url}/api/members`;
 
   create(member: string) {
     console.log(member);

@@ -1,0 +1,4 @@
+- Create a simple deploy script
+- Let user log in
+- Don't publish /config to git only to Heroku
+-

@@ -13,7 +13,7 @@ export class DaysService {
       'Access-Control-Allow-Origin':'*'
     })
   };
-  private daysUrl = `https://${environment.url}/api/days`;
+  private daysUrl = `${environment.url}/api/days`;
 
   getDays() {
     return this.http.get<Day[]>(this.daysUrl, this.httpOptions)
