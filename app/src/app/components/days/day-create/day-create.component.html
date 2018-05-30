@@ -1,0 +1,12 @@
+<h2>Dagen</h2>
+
+<ul *ngIf="days">
+  <li *ngFor="let day of days">{{ day.description }} <button (click)="deleteDay(day)">X</button></li>
+</ul>
+
+<label>name:
+  <input [(ngModel)]="newDay.description" placeholder="Weekdag" type="date">
+</label>
+<button (click)="createDay(newDay)">Opslaan</button>
+
+<app-admin></app-admin>

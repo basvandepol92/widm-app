@@ -16,7 +16,6 @@ export class MembersService {
   private membersUrl = `${environment.url}/api/members`;
 
   create(member: string) {
-    console.log(member);
     return this.http.post<Member[]>(this.membersUrl, member, this.httpOptions);
   }
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { QuestionsCreateComponent } from './components/questions/questions-creat
 import { DaysComponent } from './components/days/days.component';
 import { QuestionsOverviewComponent } from './components/questions/questions-overview/questions-overview.component';
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
+import { DayCreateComponent } from './components/days/day-create/day-create.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,13 @@ import { QuestionsAnswerComponent } from './components/questions/questions-answe
     QuestionsCreateComponent,
     DaysComponent,
     QuestionsOverviewComponent,
-    QuestionsAnswerComponent
+    QuestionsAnswerComponent,
+    DayCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

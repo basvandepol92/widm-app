@@ -7,6 +7,7 @@ import { QuestionsCreateComponent } from "./components/questions/questions-creat
 import { DaysComponent } from "./components/days/days.component";
 import { QuestionsOverviewComponent } from "./components/questions/questions-overview/questions-overview.component";
 import { QuestionsAnswerComponent } from "./components/questions/questions-answer/questions-answer.component"
+import { DayCreateComponent } from "./components/days/day-create/day-create.component";
 
 const routes : Routes = [
   {
@@ -18,6 +19,9 @@ const routes : Routes = [
   },{
     path: 'start',
     component: StartComponent
+  },{
+    path: 'days/create',
+    component: DayCreateComponent
   },{
     path: 'days/:memberId',
     component: DaysComponent
