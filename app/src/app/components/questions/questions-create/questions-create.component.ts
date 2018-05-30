@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-questions-create',
@@ -7,30 +7,40 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
   styleUrls: ['./questions-create.component.css']
 })
 export class QuestionsCreateComponent implements OnInit {
-  orderForm: FormGroup;
-  items: any[] = [];
+  public myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
-
-  createItem(): FormGroup {
-    return this.fb.group({
-      name: '',
-      description: '',
-      price: ''
-    });
-  }
-
-  addItem(): void {
-    this.items = this.orderForm.get('items') as FormArray;
-    this.items.push(this.createItem());
-  }
+  constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
-    this.orderForm = this.fb.group({
-      customerName: '',
-      email: '',
-      items: this.fb.array([ this.createItem() ])
+    this.myForm = this._fb.group({
+      questions: this._fb.array([
+        this.initQuestions(),
+      ])
     });
+  }
+
+  initQuestions() {
+    return this._fb.group({
+      question: ['', Validators.required],
+      answer_a: ['', Validators.required],
+      answer_b: ['', Validators.required],
+      answer_c: ['', Validators.required],
+      answer_d: ['', Validators.required]
+    });
+  }
+
+  addAddress() {
+    const control = <FormArray>this.myForm.controls['questions'];
+    control.push(this.initQuestions());
+  }
+
+  removeAddress(i: number) {
+    const control = <FormArray>this.myForm.controls['questions'];
+    control.removeAt(i);
+  }
+
+  save(model) {
+    console.log(model);
   }
 
 }

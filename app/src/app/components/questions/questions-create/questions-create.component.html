@@ -1,13 +1,23 @@
-<form [formGroup]="orderForm" novalidate>
-  <div formArrayName="items"
-       *ngFor="let item of orderForm.get('items').controls; let i = index;">
-    <div [formGroupName]="i">
-      <input formControlName="name" placeholder="Item name">
-      <input formControlName="description" placeholder="Item description">
-      <input formControlName="price" placeholder="Item price">
-    </div>
+<div class="container">
+  <h4>Add customer</h4>
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+    <!-- list of questions -->
+    <div formArrayName="questions">
+      <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
+        <div>
+          <span>Vraag {{i + 1}}</span>
+          <button (click)="removeAddress()"
+                  *ngIf="myForm.controls.questions.controls.length > 1">Verwijderen</button>
+        </div>
 
-    Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }}
-  </div>
-</form>
-<button (click)="addItem()">Test</button>
+        <div [formGroupName]="i">
+
+          <app-answers [group]="myForm.controls.questions.controls[i]"></app-answers>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  </form>
+</div>
+
+<button (click)="addAddress()">Toevoegen</button>

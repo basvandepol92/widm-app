@@ -9,6 +9,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MembersComponent } from './components/members/members.component';
 import { StartComponent } from './components/start/start.component';
 import { QuestionsCreateComponent } from './components/questions/questions-create/questions-create.component';
+import { AnswersComponent } from "./components/questions/controls/answers.component";
 import { DaysComponent } from './components/days/days.component';
 import { QuestionsOverviewComponent } from './components/questions/questions-overview/questions-overview.component';
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
@@ -24,7 +25,8 @@ import { DayCreateComponent } from './components/days/day-create/day-create.comp
     DaysComponent,
     QuestionsOverviewComponent,
     QuestionsAnswerComponent,
-    DayCreateComponent
+    DayCreateComponent,
+    AnswersComponent
   ],
   imports: [
     BrowserModule,
