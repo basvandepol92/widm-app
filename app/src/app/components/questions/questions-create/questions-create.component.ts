@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+
+import {QuestionsService} from "../../../services/questions.service";
+
 
 @Component({
   selector: 'app-questions-create',
@@ -8,41 +12,90 @@ import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 })
 export class QuestionsCreateComponent implements OnInit {
   public myForm: FormGroup;
+  dayId: String;
+  questions: Array<String>;
 
-  constructor(private _fb: FormBuilder) { }
+
+  static setQuestion(questionArray?) {
+    const question = questionArray ? questionArray.question : "";
+    const answer_a = questionArray ? questionArray.answer_a : "";
+    const answer_b = questionArray ? questionArray.answer_b : "";
+    const answer_c = questionArray ? questionArray.answer_c : "";
+    const answer_d = questionArray ? questionArray.answer_d : "";
+
+    return {
+      question: [question, Validators.required],
+      answer_a: [answer_a, Validators.required],
+      answer_b: [answer_b, Validators.required],
+      answer_c: [answer_c, Validators.required],
+      answer_d: [answer_d, Validators.required]
+    }
+  }
+
+  constructor(private _fb: FormBuilder,
+              private questionsService: QuestionsService,
+              private route: ActivatedRoute) {
+
+    this.setPreviousQuestions = this.setPreviousQuestions.bind(this);
+  }
+
 
   ngOnInit() {
+    const question = QuestionsCreateComponent.setQuestion();
     this.myForm = this._fb.group({
       questions: this._fb.array([
-        this.initQuestions(),
+        this.initQuestions(question),
       ])
     });
-  }
 
-  initQuestions() {
-    return this._fb.group({
-      question: ['', Validators.required],
-      answer_a: ['', Validators.required],
-      answer_b: ['', Validators.required],
-      answer_c: ['', Validators.required],
-      answer_d: ['', Validators.required]
+    this.route.params.subscribe(params => {
+      this.dayId = params['dayId'];
+      this.getPreviousQuestions();
     });
   }
 
-  addAddress() {
-    const control = <FormArray>this.myForm.controls['questions'];
-    control.push(this.initQuestions());
+  initQuestions(question) {
+    return this._fb.group(question);
   }
 
-  removeAddress(i: number) {
+  addQuestion() {
+    const question = QuestionsCreateComponent.setQuestion();
+    const control = <FormArray>this.myForm.controls['questions'];
+    control.push(this.initQuestions(question));
+  }
+
+  removeQuestion(i: number) {
     const control = <FormArray>this.myForm.controls['questions'];
     control.removeAt(i);
   }
 
   save(model) {
-    console.log(model);
+    this.questionsService.create(model.value, this.dayId)
+      .subscribe(this.questionsSaved);
   }
 
+  questionsSaved() {
+    console.log('saved');
+  }
+
+  getPreviousQuestions() {
+    this.questionsService.get(this.dayId)
+      .subscribe(this.setPreviousQuestions);
+  }
+
+  setPreviousQuestions(questions) {
+    if (questions && questions.length > 0) {
+      this.myForm = this._fb.group({
+        questions: this._fb.array([])
+      });
+
+      let control = <FormArray>this.myForm.controls['questions'];
+      questions.forEach(question => {
+        const prevQuestion = QuestionsCreateComponent.setQuestion(question);
+        control.push(this.initQuestions(prevQuestion));
+      });
+    }
+  }
 }
 
 

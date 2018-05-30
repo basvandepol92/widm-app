@@ -47,7 +47,9 @@ module.exports = (app, db) => {
                 return;
             }
 
-            res.send('Note ' + id + ' deleted');
+            res.send({
+                status: `Question ${eq.params.id} updated`
+            });
         });
     }
 

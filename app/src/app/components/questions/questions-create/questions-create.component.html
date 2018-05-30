@@ -1,23 +1,23 @@
 <div class="container">
-  <h4>Add customer</h4>
+  <h4>Vragen toevoegen</h4>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
     <!-- list of questions -->
     <div formArrayName="questions">
       <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
         <div>
           <span>Vraag {{i + 1}}</span>
-          <button (click)="removeAddress()"
-                  *ngIf="myForm.controls.questions.controls.length > 1">Verwijderen</button>
+          <div (click)="removeQuestion(i)" *ngIf="myForm.controls.questions.controls.length > 1"
+            style="text-decoration: underline; cursor: pointer">Verwijderen</div>
         </div>
 
         <div [formGroupName]="i">
-
           <app-answers [group]="myForm.controls.questions.controls[i]"></app-answers>
         </div>
       </div>
     </div>
-    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    <button type="submit" [disabled]="!myForm.valid">Opslaan</button>
   </form>
 </div>
+<button (click)="addQuestion()">Vraag toevoegen</button>
 
-<button (click)="addAddress()">Toevoegen</button>
+<app-admin></app-admin>

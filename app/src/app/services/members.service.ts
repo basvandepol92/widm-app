@@ -24,7 +24,6 @@ export class MembersService {
   }
 
   delete(member) {
-    //this.httpOptions.responseType = 'text';
     return this.http.delete<Member[]>(`${this.membersUrl}/${member._id}`, this.httpOptions);
   }
 }

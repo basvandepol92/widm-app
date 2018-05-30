@@ -48,7 +48,9 @@ module.exports = (app, db) => {
                 return;
             }
 
-            res.send('Day ' + id + ' deleted');
+            res.send({
+                status: `Question ${eq.params.id} updated`
+            });
         });
     }
 
