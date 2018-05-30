@@ -15,7 +15,7 @@ export class QuestionsService {
   };
   private questionsUrl = `${environment.url}/api/questions`;
 
-  create(questions: Array, dayId: String) {
+  create(questions, dayId: String) {
     return this.http.put(`${this.questionsUrl}/${dayId}`, questions, this.httpOptions);
   }
 

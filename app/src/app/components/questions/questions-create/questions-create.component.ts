@@ -60,12 +60,12 @@ export class QuestionsCreateComponent implements OnInit {
 
   addQuestion() {
     const question = QuestionsCreateComponent.setQuestion();
-    const control = <FormArray>this.myForm.controls['questions'];
+    const control = this.myForm.get(`questions`) as FormArray;
     control.push(this.initQuestions(question));
   }
 
   removeQuestion(i: number) {
-    const control = <FormArray>this.myForm.controls['questions'];
+    const control = this.myForm.get(`questions`) as FormArray;
     control.removeAt(i);
   }
 
@@ -89,7 +89,7 @@ export class QuestionsCreateComponent implements OnInit {
         questions: this._fb.array([])
       });
 
-      let control = <FormArray>this.myForm.controls['questions'];
+      const control = this.myForm.get(`questions`) as FormArray;
       questions.forEach(question => {
         const prevQuestion = QuestionsCreateComponent.setQuestion(question);
         control.push(this.initQuestions(prevQuestion));
