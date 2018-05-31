@@ -6,17 +6,29 @@
   <div class="form-group col-xs-6">
     <label>Antwoord A</label>
     <input type="text" class="form-control" formControlName="answer_a">
+    <input type="radio"
+           formControlName="correct_answer"
+           [value]="0">
   </div>
   <div class="form-group col-xs-6">
     <label>Antwoord B</label>
     <input type="text" class="form-control" formControlName="answer_b">
+    <input type="radio"
+           formControlName="correct_answer"
+           [value]="1">
   </div>
   <div class="form-group col-xs-6">
     <label>Antwoord C</label>
     <input type="text" class="form-control" formControlName="answer_c">
+    <input type="radio"
+           formControlName="correct_answer"
+           [value]="2">
   </div>
   <div class="form-group col-xs-6">
     <label>Antwoord D</label>
     <input type="text" class="form-control" formControlName="answer_d">
+    <input type="radio"
+           formControlName="correct_answer"
+           [value]="3">
   </div>
 </div>

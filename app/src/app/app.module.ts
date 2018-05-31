@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AdminComponent } from './components/admin/admin.component';
+import { NavComponent } from './components/nav/nav.component';
 import { MembersComponent } from './components/members/members.component';
 import { StartComponent } from './components/start/start.component';
 import { QuestionsCreateComponent } from './components/questions/questions-create/questions-create.component';
@@ -14,11 +14,12 @@ import { DaysComponent } from './components/days/days.component';
 import { QuestionsOverviewComponent } from './components/questions/questions-overview/questions-overview.component';
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
 import { DayCreateComponent } from './components/days/day-create/day-create.component';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
+    NavComponent,
     MembersComponent,
     StartComponent,
     QuestionsCreateComponent,
@@ -26,7 +27,8 @@ import { DayCreateComponent } from './components/days/day-create/day-create.comp
     QuestionsOverviewComponent,
     QuestionsAnswerComponent,
     DayCreateComponent,
-    AnswersComponent
+    AnswersComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,

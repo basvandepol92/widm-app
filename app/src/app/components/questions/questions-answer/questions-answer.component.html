@@ -1,3 +1,34 @@
-<p>
-  questions-answer works!
-</p>
+<form *ngIf="myForm" [formGroup]="myForm"  novalidate (ngSubmit)="save(myForm)">
+  <!-- list of questions -->
+  <div formArrayName="questions">
+    <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
+      <div>
+        <span style="display: block">{{question.value.question}}</span>
+        <span>{{question.value.answer_a}}</span>
+        <input type="radio"
+               [value]="question.value.answer_a"
+               name="radiogroup{{i}}"
+               (change)="onSelectionChange(question, question.value.answer_a)"><br/>
+
+        <span>{{question.value.answer_b}}</span>
+        <input type="radio"
+               [value]="question.value.answer_b"
+               name="radiogroup{{i}}"
+               (change)="onSelectionChange(question, question.value.answer_b)"><br/>
+
+        <span>{{question.value.answer_c}}</span>
+        <input type="radio"
+               [value]="question.value.answer_c"
+               name="radiogroup{{i}}"
+               (change)="onSelectionChange(question, question.value.answer_c)"><br/>
+
+        <span>{{question.value.answer_d}}</span>
+        <input type="radio"
+               [value]="question.value.answer_d"
+               name="radiogroup{{i}}"
+               (change)="onSelectionChange(question, i, question.value.answer_d)"><br/>
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!isFormValid()">Opslaan</button>
+</form>

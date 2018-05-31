@@ -22,7 +22,6 @@ export class DaysService {
     }
 
     create(day: string) {
-        console.log(day);
         return this.http.post<Day[]>(this.daysUrl, day, this.httpOptions);
     }
 

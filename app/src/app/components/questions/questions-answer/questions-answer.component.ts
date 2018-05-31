@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {QuestionsService} from "../../../services/questions.service";
+import {ActivatedRoute} from '@angular/router';
+import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-questions-answer',
@@ -6,10 +9,81 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions-answer.component.css']
 })
 export class QuestionsAnswerComponent implements OnInit {
+  public myForm: FormGroup;
+  dayId: String;
+  answerObject;
 
-  constructor() { }
+  static setQuestion(questionArray?) {
+    return {
+      question: questionArray.question,
+      answer_a: questionArray.answer_a,
+      answer_b: questionArray.answer_b,
+      answer_c: questionArray.answer_c,
+      answer_d: questionArray.answer_d,
+      answered: ''
+    }
+  }
+
+  constructor(private _fb: FormBuilder,
+              private questionsService: QuestionsService,
+              private route: ActivatedRoute) {
+
+    this.setQuestions = this.setQuestions.bind(this);
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.dayId = params['dayId'];
+      this.getQuestions();
+    });
   }
+
+  getQuestions() {
+    this.questionsService.get(this.dayId)
+      .subscribe(this.setQuestions);
+  }
+
+  initQuestions(question) {
+    return this._fb.group(question);
+  }
+
+  setQuestions(questions) {
+    if (questions && questions.length > 0) {
+      this.myForm = this._fb.group({
+        questions: this._fb.array([])
+      });
+
+      const control = this.myForm.get(`questions`) as FormArray;
+      questions.forEach(question => {
+        const prevQuestion = QuestionsAnswerComponent.setQuestion(question);
+        control.push(this.initQuestions(prevQuestion));
+      });
+    }
+  }
+
+  onSelectionChange(question, answer) {
+    question.value.answered = answer;
+    this.createAnswerObject()
+  }
+
+  createAnswerObject() {
+    this.answerObject = this.myForm.value.questions
+      .filter((question) => {
+        return question.answered && question.answered !== ""
+      })
+      .map(question => {
+        return question.answered
+      })
+  }
+
+  isFormValid() {
+    return this.answerObject && this.answerObject.length === this.myForm.value.questions.length
+  }
+
+  save() {
+    //Save to the service
+    console.log(this.answerObject);
+  }
+
 
 }

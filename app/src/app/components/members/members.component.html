@@ -1,12 +1,12 @@
 <h2>Leden</h2>
 
-<ul *ngIf="members">
-  <li *ngFor="let member of members">{{ member.name }} <button (click)="deleteMember(member)">X</button></li>
-</ul>
-
 <label>name:
   <input [(ngModel)]="member.name" placeholder="name">
 </label>
 <button (click)="createMember(member)">Opslaan</button>
 
-<app-admin></app-admin>
+
+<ul *ngIf="members">
+  <li *ngFor="let member of members">{{ member.name }} <button (click)="deleteMember(member)">X</button></li>
+</ul>
+

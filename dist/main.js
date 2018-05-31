@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
+/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/nav/nav.component */ "./src/app/components/nav/nav.component.ts");
 /* harmony import */ var _components_members_members_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/members/members.component */ "./src/app/components/members/members.component.ts");
 /* harmony import */ var _components_start_start_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/start/start.component */ "./src/app/components/start/start.component.ts");
 /* harmony import */ var _components_questions_questions_create_questions_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/questions/questions-create/questions-create.component */ "./src/app/components/questions/questions-create/questions-create.component.ts");
@@ -62,7 +62,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var routes = [
     {
         path: 'admin',
-        component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_2__["AdminComponent"]
+        component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_2__["NavComponent"]
     }, {
         path: 'members',
         component: _components_members_members_component__WEBPACK_IMPORTED_MODULE_3__["MembersComponent"]
@@ -87,7 +87,7 @@ var routes = [
     },
     {
         path: '',
-        redirectTo: '/admin',
+        redirectTo: '/nav',
         pathMatch: 'full'
     }
 ];
@@ -181,7 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
+/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/nav/nav.component */ "./src/app/components/nav/nav.component.ts");
 /* harmony import */ var _components_members_members_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/members/members.component */ "./src/app/components/members/members.component.ts");
 /* harmony import */ var _components_start_start_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/start/start.component */ "./src/app/components/start/start.component.ts");
 /* harmony import */ var _components_questions_questions_create_questions_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/questions/questions-create/questions-create.component */ "./src/app/components/questions/questions-create/questions-create.component.ts");
@@ -218,7 +218,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["AdminComponent"],
+                _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["NavComponent"],
                 _components_members_members_component__WEBPACK_IMPORTED_MODULE_7__["MembersComponent"],
                 _components_start_start_component__WEBPACK_IMPORTED_MODULE_8__["StartComponent"],
                 _components_questions_questions_create_questions_create_component__WEBPACK_IMPORTED_MODULE_9__["QuestionsCreateComponent"],
@@ -248,7 +248,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ "./src/app/components/admin/admin.component.css":
 /*!******************************************************!*\
-  !*** ./src/app/components/admin/admin.component.css ***!
+  !*** ./src/app/components/nav/nav.component.css ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -259,7 +259,7 @@ module.exports = ""
 
 /***/ "./src/app/components/admin/admin.component.html":
 /*!*******************************************************!*\
-  !*** ./src/app/components/admin/admin.component.html ***!
+  !*** ./src/app/components/nav/nav.component.html ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -270,14 +270,14 @@ module.exports = "<nav>\n  <ul>\n    <li><a routerLink=\"/start\">Start</a></li>
 
 /***/ "./src/app/components/admin/admin.component.ts":
 /*!*****************************************************!*\
-  !*** ./src/app/components/admin/admin.component.ts ***!
+  !*** ./src/app/components/nav/nav.component.ts ***!
   \*****************************************************/
-/*! exports provided: AdminComponent */
+/*! exports provided: NavComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavComponent", function() { return AdminComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -297,8 +297,8 @@ var AdminComponent = /** @class */ (function () {
     AdminComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-admin',
-            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/components/admin/admin.component.html"),
-            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/components/admin/admin.component.css")]
+            template: __webpack_require__(/*! ./nav.component.html */ "./src/app/components/nav/nav.component.html"),
+            styles: [__webpack_require__(/*! ./nav.component.css */ "./src/app/components/nav/nav.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], AdminComponent);
@@ -327,7 +327,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Dagen</h2>\n\n<ul *ngIf=\"days\">\n  <li *ngFor=\"let day of days\">{{ day.description }} <button (click)=\"deleteDay(day)\">X</button></li>\n</ul>\n\n<label>name:\n  <input [(ngModel)]=\"newDay.description\" placeholder=\"Weekdag\" type=\"date\">\n</label>\n<button (click)=\"createDay(newDay)\">Opslaan</button>\n\n<app-admin></app-admin>\n"
+module.exports = "<h2>Dagen</h2>\n\n<ul *ngIf=\"days\">\n  <li *ngFor=\"let day of days\">{{ day.description }} <button (click)=\"deleteDay(day)\">X</button></li>\n</ul>\n\n<label>name:\n  <input [(ngModel)]=\"newDay.description\" placeholder=\"Weekdag\" type=\"date\">\n</label>\n<button (click)=\"createDay(newDay)\">Opslaan</button>\n\n<app-nav></app-nav>\n"
 
 /***/ }),
 
@@ -499,7 +499,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Leden</h2>\n\n<ul *ngIf=\"members\">\n  <li *ngFor=\"let member of members\">{{ member.name }} <button (click)=\"deleteMember(member)\">X</button></li>\n</ul>\n\n<label>name:\n  <input [(ngModel)]=\"member.name\" placeholder=\"name\">\n</label>\n<button (click)=\"createMember(member)\">Opslaan</button>\n\n<app-admin></app-admin>\n"
+module.exports = "<h2>Leden</h2>\n\n<ul *ngIf=\"members\">\n  <li *ngFor=\"let member of members\">{{ member.name }} <button (click)=\"deleteMember(member)\">X</button></li>\n</ul>\n\n<label>name:\n  <input [(ngModel)]=\"member.name\" placeholder=\"name\">\n</label>\n<button (click)=\"createMember(member)\">Opslaan</button>\n\n<app-nav></app-nav>\n"
 
 /***/ }),
 
@@ -705,7 +705,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h4>Vragen toevoegen</h4>\n  <form [formGroup]=\"myForm\" novalidate (ngSubmit)=\"save(myForm)\">\n    <!-- list of questions -->\n    <div formArrayName=\"questions\">\n      <div *ngFor=\"let question of myForm.controls.questions.controls; let i=index\">\n        <div>\n          <span>Vraag {{i + 1}}</span>\n          <div (click)=\"removeQuestion(i)\" *ngIf=\"myForm.controls.questions.controls.length > 1\"\n            style=\"text-decoration: underline; cursor: pointer\">Verwijderen</div>\n        </div>\n\n        <div [formGroupName]=\"i\">\n          <app-answers [group]=\"myForm.controls.questions.controls[i]\"></app-answers>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" [disabled]=\"!myForm.valid\">Opslaan</button>\n  </form>\n</div>\n<button (click)=\"addQuestion()\">Vraag toevoegen</button>\n\n<app-admin></app-admin>\n"
+module.exports = "<div class=\"container\">\n  <h4>Vragen toevoegen</h4>\n  <form [formGroup]=\"myForm\" novalidate (ngSubmit)=\"save(myForm)\">\n    <!-- list of questions -->\n    <div formArrayName=\"questions\">\n      <div *ngFor=\"let question of myForm.controls.questions.controls; let i=index\">\n        <div>\n          <span>Vraag {{i + 1}}</span>\n          <div (click)=\"removeQuestion(i)\" *ngIf=\"myForm.controls.questions.controls.length > 1\"\n            style=\"text-decoration: underline; cursor: pointer\">Verwijderen</div>\n        </div>\n\n        <div [formGroupName]=\"i\">\n          <app-answers [group]=\"myForm.controls.questions.controls[i]\"></app-answers>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" [disabled]=\"!myForm.valid\">Opslaan</button>\n  </form>\n</div>\n<button (click)=\"addQuestion()\">Vraag toevoegen</button>\n\n<app-nav></app-nav>\n"
 
 /***/ }),
 

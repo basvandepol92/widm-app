@@ -22,13 +22,15 @@ export class QuestionsCreateComponent implements OnInit {
     const answer_b = questionArray ? questionArray.answer_b : "";
     const answer_c = questionArray ? questionArray.answer_c : "";
     const answer_d = questionArray ? questionArray.answer_d : "";
+    const correct_answer = questionArray ? questionArray.correct_answer : "";
 
     return {
       question: [question, Validators.required],
       answer_a: [answer_a, Validators.required],
       answer_b: [answer_b, Validators.required],
       answer_c: [answer_c, Validators.required],
-      answer_d: [answer_d, Validators.required]
+      answer_d: [answer_d, Validators.required],
+      correct_answer: [correct_answer, Validators.required]
     }
   }
 
