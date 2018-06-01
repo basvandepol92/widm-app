@@ -1,16 +1,18 @@
 TODO:
 - Create a simple deploy script
-- Let user log in
+- Let admin log in
 - Don't publish /config to git only to Heroku
 - Only one location for node_modules
 - Add mongoose for DB scheme
 - Implement moment
-- Response type in delete service
 - Validate date
 - Add Angular Material
+- When score is submitted user can't do same day anymore
+- Implement loading spinners and error scenario's
 
 TOWANT:
 - Create as PWA
 
 DONE:
 - Move dist folder to root
+- Response type in delete service

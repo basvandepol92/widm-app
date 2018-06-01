@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {QuestionsService} from "../../../services/questions.service";
 import {ActivatedRoute} from '@angular/router';
-import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
+import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-questions-answer',
@@ -10,8 +10,9 @@ import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 })
 export class QuestionsAnswerComponent implements OnInit {
   public myForm: FormGroup;
-  dayId: String;
-  answerObject;
+  private dayId: String;
+  private memberId: String;
+  private answerObject;
 
   static setQuestion(questionArray?) {
     return {
@@ -26,7 +27,8 @@ export class QuestionsAnswerComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private questionsService: QuestionsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private location: Location) {
 
     this.setQuestions = this.setQuestions.bind(this);
   }
@@ -34,6 +36,7 @@ export class QuestionsAnswerComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.dayId = params['dayId'];
+      this.memberId = params['memberId'];
       this.getQuestions();
     });
   }
@@ -81,8 +84,14 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   save() {
-    //Save to the service
     console.log(this.answerObject);
+    this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
+      .subscribe(response => {
+        if(response.status === 200) {
+            console.log('saved');
+            //Change location
+          }
+      });
   }
 
 

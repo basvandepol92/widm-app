@@ -2,6 +2,7 @@
 const ObjectID = require('mongodb').ObjectID;
 
 const COLLECTION = 'days';
+const SCORE_COLLECTION = 'score';
 const ERROR = {'error': 'An error has occurred'};
 
 module.exports = (app, db) => {
@@ -9,6 +10,7 @@ module.exports = (app, db) => {
     //Endpoints
     app.put('/api/questions/:id', postQuestions);
     app.get('/api/questions/:id', getQuestions);
+    app.post('/api/questions/:dayid/:memberid', validateAnswers);
 
     function postQuestions(req, res) {
         const queryObject = getIdObject(req.params.id);
@@ -43,6 +45,68 @@ module.exports = (app, db) => {
         });
     }
 
+    function validateAnswers(req, res){
+        const saveObject = {
+            member_id:req.params.memberid,
+            day_id: req.params.dayid,
+            score: 0,
+            answers: req.body
+        };
+
+        getAnswers(saveObject.day_id, function(questions) {
+
+            //validate answers
+            for(let i = 0; i < questions.length ; i++) {
+                const answerId = getAnswerId(i);
+                const correctAnswer = questions[i][answerId];
+                const providedAnswer = req.body[i];
+
+                if(correctAnswer === providedAnswer) {
+                    saveObject.score++
+                }
+            }
+            saveScore(res, saveObject);
+        });
+    }
+
+    function saveScore(res, saveObject) {
+        db.collection(SCORE_COLLECTION).insert(saveObject, (err, result) => {
+            if (err) {
+                res.send(ERROR);
+                return;
+            }
+
+            res.send({
+                status: 200,
+                message: `Score for user ${saveObject.member_id} updated`
+            });
+        });
+    }
+
+    function getAnswerId(index) {
+        switch(index) {
+            case 0:
+                return 'answer_a';
+            case 1:
+                return 'answer_b';
+            case 2:
+                return 'answer_c';
+            case 3:
+                return 'answer_d';
+        }
+    }
+
+    function getAnswers(dayId, callback) {
+        let queryObject = getIdObject(dayId);
+        db.collection(COLLECTION).find(queryObject).toArray(function (err, day) {
+            if (err) {
+                res.send(ERROR);
+                return;
+            }
+
+            callback(day[0].questions);
+        });
+    }
 
 
 

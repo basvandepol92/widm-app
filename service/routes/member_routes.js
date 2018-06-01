@@ -48,7 +48,7 @@ module.exports = (app, db) => {
             }
 
             res.send({
-                status: `Question ${eq.params.id} updated`
+                status: `Question ${req.params.id} updated`
             });
         });
     }

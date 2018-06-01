@@ -23,4 +23,8 @@ export class QuestionsService {
     return this.http.get(`${this.questionsUrl}/${dayId}`, this.httpOptions);
   }
 
+  saveAnswers(answers, dayId, memberId) {
+    return this.http.post(`${this.questionsUrl}/${dayId}/${memberId}`, answers, this.httpOptions);
+  }
+
 }
