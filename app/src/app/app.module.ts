@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule} from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
+
+
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
@@ -35,8 +40,12 @@ import { ConfigurationComponent } from './components/configuration/configuration
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatMomentDateModule,
+    MatButtonModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule
   ],
+  exports: [MatButtonModule],
   providers: [],
   bootstrap: [AppComponent]
 })

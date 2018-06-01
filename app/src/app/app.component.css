@@ -1,0 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  background:#e8e8e8;
+  margin: 0;
+}
+
+.content_wrapper {
+  max-width: 75vw;
+  margin: 0 auto;
+  margin-top: 20px;
+}

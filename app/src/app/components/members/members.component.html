@@ -1,12 +1,11 @@
 <h2>Leden</h2>
 
-<label>name:
-  <input [(ngModel)]="member.name" placeholder="name">
-</label>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Voer een naam in"
+         [(ngModel)]="member.name">
+</mat-form-field>
 <button (click)="createMember(member)">Opslaan</button>
 
-
-<ul *ngIf="members">
-  <li *ngFor="let member of members">{{ member.name }} <button (click)="deleteMember(member)">X</button></li>
-</ul>
-
+<mat-list *ngIf="members">
+  <mat-list-item *ngFor="let member of members"> {{ member .name }} <button (click)="deleteMember(member)">X</button></mat-list-item>
+</mat-list>

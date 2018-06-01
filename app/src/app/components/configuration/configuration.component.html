@@ -1,3 +1,25 @@
-<app-day-create></app-day-create>
-<app-members></app-members>
 <app-nav></app-nav>
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Leden
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-members></app-members>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Dagen
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-day-create></app-day-create>
+
+  </mat-expansion-panel>
+</mat-accordion>

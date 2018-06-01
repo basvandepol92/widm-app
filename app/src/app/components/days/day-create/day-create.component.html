@@ -1,11 +1,15 @@
 <h2>Dagen</h2>
 
-<label>name:
-  <input [(ngModel)]="newDay.description" placeholder="Weekdag" type="date">
-</label>
-<button (click)="createDay(newDay)">Opslaan</button>
-<ul *ngIf="days">
-  <li *ngFor="let day of days">{{ day.description }} <button (click)="deleteDay(day)">X</button></li>
-</ul>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Kies een datum"
+         [(ngModel)]="newDay.description">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
+<button (click)="createDay(newDay)">Opslaan</button>
+
+<mat-list *ngIf="days">
+  <mat-list-item *ngFor="let day of days"> {{ day.description }} <button (click)="deleteDay(day)">X</button></mat-list-item>
+</mat-list>
 
