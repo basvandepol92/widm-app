@@ -1,13 +1,15 @@
-<div class="container">
-  <h4>Vragen toevoegen</h4>
+<app-nav></app-nav>
+
+<div class="questions-create">
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
     <!-- list of questions -->
     <div formArrayName="questions">
       <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
         <div>
-          <span>Vraag {{i + 1}}</span>
+          <h4>Vraag {{i + 1}}</h4>
           <div (click)="removeQuestion(i)" *ngIf="myForm.controls.questions.controls.length > 1"
-            style="text-decoration: underline; cursor: pointer">Verwijderen</div>
+               style="text-decoration: underline; cursor: pointer">Verwijderen
+          </div>
         </div>
 
         <div [formGroupName]="i">
@@ -17,7 +19,5 @@
     </div>
     <button type="submit" [disabled]="!myForm.valid">Opslaan</button>
   </form>
+  <button (click)="addQuestion()">Vraag toevoegen</button>
 </div>
-<button (click)="addQuestion()">Vraag toevoegen</button>
-
-<app-nav></app-nav>

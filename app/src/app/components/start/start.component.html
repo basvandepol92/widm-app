@@ -1,5 +1,7 @@
-<ul *ngIf="members">
-  <li *ngFor="let member of members">
-    <a routerLink="/days/{{member._id}}">{{ member.name }}</a>
-  </li>
-</ul>
+<mat-list *ngIf="members">
+  <mat-list-item *ngFor="let member of members">
+    <button mat-button routerLink="/days/{{member._id}}">
+      {{ member .name }}
+    </button>
+  </mat-list-item>
+</mat-list>

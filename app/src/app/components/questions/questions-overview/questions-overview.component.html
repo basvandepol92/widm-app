@@ -1,7 +1,9 @@
 <app-nav></app-nav>
 <h2>Selecteer een dag</h2>
-<ul *ngIf="days">
-  <li *ngFor="let day of days">
-    <a routerLink="/questions/{{day._id}}">{{ day.description }}</a>
-  </li>
-</ul>
+<mat-list *ngIf="days">
+  <mat-list-item *ngFor="let day of days">
+    <button mat-button  routerLink="/questions/{{day._id}}">
+      {{ day.description }}
+    </button>
+  </mat-list-item>
+</mat-list>

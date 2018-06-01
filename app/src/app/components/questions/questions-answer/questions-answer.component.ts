@@ -27,8 +27,7 @@ export class QuestionsAnswerComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private questionsService: QuestionsService,
-              private route: ActivatedRoute,
-              private location: Location) {
+              private route: ActivatedRoute) {
 
     this.setQuestions = this.setQuestions.bind(this);
   }

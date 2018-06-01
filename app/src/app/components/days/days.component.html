@@ -1,7 +1,9 @@
 <h2>Wie is de Mol</h2>
 
-<ul *ngIf="days">
-  <li *ngFor="let day of days">
-    <a routerLink="/questions/{{memberId}}/{{day._id}}">{{ day.description }}</a>
-  </li>
-</ul>
+<mat-list *ngIf="days">
+  <mat-list-item *ngFor="let day of days">
+    <button mat-button  routerLink="/questions/{{memberId}}/{{day._id}}">
+      {{ day.description }}
+    </button>
+  </mat-list-item>
+</mat-list>
