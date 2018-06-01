@@ -1,5 +1,3 @@
-<h2>Dagen</h2>
-
 <mat-form-field>
   <input matInput [matDatepicker]="picker" placeholder="Kies een datum"
          [(ngModel)]="newDay.description">
@@ -7,9 +5,19 @@
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
-<button (click)="createDay(newDay)">Opslaan</button>
+<button mat-raised-button color="primary" (click)="createDay(newDay)">
+  Opslaan
+</button>
 
 <mat-list *ngIf="days">
-  <mat-list-item *ngFor="let day of days"> {{ day.description }} <button (click)="deleteDay(day)">X</button></mat-list-item>
+  <mat-list-item class="mat-3-line" *ngFor="let day of days">
+    {{ day.description }}
+    <div class="mat-secondary-container">
+      <button mat-button (click)="deleteDay(day)">
+        X
+      </button>
+    </div>
+    <mat-divider ng-if="!$last"></mat-divider>
+  </mat-list-item>
 </mat-list>
 

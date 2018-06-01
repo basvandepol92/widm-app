@@ -86,10 +86,10 @@ export class QuestionsAnswerComponent implements OnInit {
     console.log(this.answerObject);
     this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
       .subscribe(response => {
-        if(response.status === 200) {
+        /*if(response.status === 200) {
             console.log('saved');
             //Change location
-          }
+          }*/
       });
   }
 

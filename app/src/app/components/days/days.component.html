@@ -1,9 +1,13 @@
-<h2>Wie is de Mol</h2>
+<h2>Selecteer de dag om vragen te beantwoorden</h2>
 
 <mat-list *ngIf="days">
-  <mat-list-item *ngFor="let day of days">
-    <button mat-button  routerLink="/questions/{{memberId}}/{{day._id}}">
-      {{ day.description }}
-    </button>
+  <mat-list-item class="mat-3-line" *ngFor="let day of days">
+    {{ day.description }}
+    <div class="mat-secondary-container">
+      <button mat-button routerLink="/questions/{{memberId}}/{{day._id}}">
+        >
+      </button>
+    </div>
+    <mat-divider ng-if="!$last"></mat-divider>
   </mat-list-item>
 </mat-list>

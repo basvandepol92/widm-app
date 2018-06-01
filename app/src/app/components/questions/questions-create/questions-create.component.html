@@ -17,7 +17,11 @@
         </div>
       </div>
     </div>
-    <button type="submit" [disabled]="!myForm.valid">Opslaan</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Opslaan</button>
   </form>
-  <button (click)="addQuestion()">Vraag toevoegen</button>
+  <button mat-fab (click)="addQuestion()">
+    <mat-icon>
+      add
+    </mat-icon>
+  </button>
 </div>
