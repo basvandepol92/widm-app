@@ -1,9 +1,34 @@
 <mat-toolbar color="primary">
-  <span>Wie is de mol?</span>
+
+  <mat-toolbar class="topNav" color="primary" fxShow="true" fxHide.lt-sm="true">
+    <app-nav></app-nav>
+  </mat-toolbar>
+
+  <div class="mobileNav_wrapper"
+       fxShow="true"
+       fxHide.gt-xs="true">
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
+  </div>
+
+  <span class="title">Wie is de MOL?</span>
 </mat-toolbar>
 
-<div class="content_wrapper">
-  <mat-card>
-    <router-outlet></router-outlet>
-  </mat-card>
-</div>
+<mat-sidenav-container fxFlexFill class="example-container">
+  <mat-sidenav class="sideNav"  #sidenav fxLayout="column">
+    <div fxLayout="column">
+      <app-nav></app-nav>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxFlexFill>
+    <div class="content_wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

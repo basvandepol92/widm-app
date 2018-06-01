@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
+import {MatSnackBar}  from "@angular/material";
 
 import {QuestionsService} from "../../../services/questions.service";
 
@@ -36,9 +37,11 @@ export class QuestionsCreateComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private questionsService: QuestionsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private snackbar: MatSnackBar) {
 
     this.setPreviousQuestions = this.setPreviousQuestions.bind(this);
+    this.questionsSaved = this.questionsSaved.bind(this);
   }
 
 
@@ -77,7 +80,9 @@ export class QuestionsCreateComponent implements OnInit {
   }
 
   questionsSaved() {
-    console.log('saved');
+    this.snackbar.open(`Vragen zijn opgeslagen`, null, {
+      duration: 1000
+    });
   }
 
   getPreviousQuestions() {

@@ -1,13 +1,18 @@
-<app-nav></app-nav>
-<h2>Selecteer een dag</h2>
-<mat-list *ngIf="days">
-  <mat-list-item class="mat-3-line" *ngFor="let day of days">
-    {{ day.description }}
-    <div class="mat-secondary-container">
-      <button mat-button routerLink="/questions/{{day._id}}">
-        >
-      </button>
-    </div>
-    <mat-divider ng-if="!$last"></mat-divider>
-  </mat-list-item>
-</mat-list>
+<mat-card>
+  <h4>Selecteer een dag</h4>
+</mat-card>
+<mat-card>
+  <mat-list *ngIf="days">
+    <mat-list-item class="mat-3-line" *ngFor="let day of days">
+      {{ day.description }}
+      <div class="mat-secondary-container next_button">
+        <button mat-button routerLink="/questions/{{day._id}}">
+          <mat-icon>
+            arrow_right
+          </mat-icon>
+        </button>
+      </div>
+      <mat-divider ng-if="!$last"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

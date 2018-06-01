@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule} from '@angular/material';
+import { MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule} from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
 
@@ -43,7 +44,8 @@ import { ConfigurationComponent } from './components/configuration/configuration
     HttpClientModule,
     BrowserAnimationsModule,
     MatMomentDateModule,
-    MatButtonModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule
+    FlexLayoutModule,
+    MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule
   ],
   exports: [MatButtonModule],
   providers: [],

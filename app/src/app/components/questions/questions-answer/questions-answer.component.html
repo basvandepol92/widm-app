@@ -1,34 +1,68 @@
-<form *ngIf="myForm" [formGroup]="myForm"  novalidate (ngSubmit)="save(myForm)">
+<mat-card>
+  <h4>Beantwoord alle vragen</h4>
+</mat-card>
+
+<form *ngIf="myForm" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
   <!-- list of questions -->
   <div formArrayName="questions">
     <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
-      <div>
-        <span style="display: block">{{question.value.question}}</span>
-        <span>{{question.value.answer_a}}</span>
-        <input type="radio"
-               [value]="question.value.answer_a"
-               name="radiogroup{{i}}"
-               (change)="onSelectionChange(question, question.value.answer_a)"><br/>
+      <mat-card>
 
-        <span>{{question.value.answer_b}}</span>
-        <input type="radio"
-               [value]="question.value.answer_b"
-               name="radiogroup{{i}}"
-               (change)="onSelectionChange(question, question.value.answer_b)"><br/>
+        <div>
 
-        <span>{{question.value.answer_c}}</span>
-        <input type="radio"
-               [value]="question.value.answer_c"
-               name="radiogroup{{i}}"
-               (change)="onSelectionChange(question, question.value.answer_c)"><br/>
+          <div class="question-title_wrapper">
+            <span class="questionTitle">{{question.value.question}}</span>
+          </div>
 
-        <span>{{question.value.answer_d}}</span>
-        <input type="radio"
-               [value]="question.value.answer_d"
-               name="radiogroup{{i}}"
-               (change)="onSelectionChange(question, question.value.answer_d)"><br/>
-      </div>
+          <mat-list>
+            <mat-list-item class="mat-3-line">
+              <mat-radio-button type="radio"
+                                [value]="question.value.answer_a"
+                                name="radiogroup{{i}}"
+                                (change)="onSelectionChange(question, question.value.answer_a)">
+                {{question.value.answer_a}}
+              </mat-radio-button>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item class="mat-3-line">
+              <mat-radio-button type="radio"
+                                [value]="question.value.answer_b"
+                                name="radiogroup{{i}}"
+                                (change)="onSelectionChange(question, question.value.answer_b)">
+                {{question.value.answer_b}}
+              </mat-radio-button>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item class="mat-3-line">
+              <mat-radio-button type="radio"
+                                [value]="question.value.answer_c"
+                                name="radiogroup{{i}}"
+                                (change)="onSelectionChange(question, question.value.answer_c)">
+                {{question.value.answer_c}}
+              </mat-radio-button>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item class="mat-3-line">
+              <mat-radio-button type="radio"
+                     [value]="question.value.answer_d"
+                     name="radiogroup{{i}}"
+                     (change)="onSelectionChange(question, question.value.answer_d)">
+              {{question.value.answer_d}}
+              </mat-radio-button>
+            </mat-list-item>
+
+          </mat-list>
+        </div>
+      </mat-card>
     </div>
   </div>
-  <button type="submit" [disabled]="!isFormValid()">Opslaan</button>
+  <button class="save-questions" mat-fab type="submit" color="primary" [disabled]="!isFormValid()">
+    <mat-icon>
+      save
+    </mat-icon>
+  </button>
 </form>
+

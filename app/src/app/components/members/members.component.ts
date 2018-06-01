@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from "../../types/member";
 import { MembersService } from "../../services/members.service";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: 'app-members',
@@ -10,9 +11,10 @@ import { MembersService } from "../../services/members.service";
 export class MembersComponent implements OnInit {
 
   members: Member[];
-  member: Member = new Member();
+  private member: Member = new Member();
 
-  constructor(private membersService: MembersService ) { }
+  constructor(private membersService: MembersService,
+              private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.getMembers();
@@ -25,7 +27,8 @@ export class MembersComponent implements OnInit {
       .subscribe(members => this.members = members);
   }
 
-  createMember(member) {
+  createMember() {
+    const member = this.member;
     this.membersService.create(member)
       .subscribe(this.onMemberCreated);
   }
@@ -33,10 +36,18 @@ export class MembersComponent implements OnInit {
   onMemberCreated(member) {
     this.members.push(member);
     this.member = new Member();
+
+    this.snackbar.open(`${member.name} opgeslagen`, null, {
+      duration: 1000
+    });
   }
 
   deleteMember(deleteMember) {
     this.membersService.delete(deleteMember).subscribe();
     this.members = this.members.filter(member => member._id !== deleteMember._id);
+
+    this.snackbar.open(`${deleteMember.name} verwijderd`, null, {
+      duration: 1000
+    });
   }
 }

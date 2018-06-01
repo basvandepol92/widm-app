@@ -1,27 +1,46 @@
-<app-nav></app-nav>
+<mat-card>
+  <h4>Maak vragen</h4>
+</mat-card>
 
-<div class="questions-create">
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-    <!-- list of questions -->
-    <div formArrayName="questions">
-      <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
-        <div>
-          <h4>Vraag {{i + 1}}</h4>
-          <div (click)="removeQuestion(i)" *ngIf="myForm.controls.questions.controls.length > 1"
-               style="text-decoration: underline; cursor: pointer">Verwijderen
+  <div class="questions-create"
+       fxLayout
+       fxLayout.xs="column"
+       fxLayoutAlign="center"
+       fxLayoutGap="10px"
+       fxLayoutGap.xs="0">
+    <form fxFlex="100%" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <!-- list of questions -->
+      <div formArrayName="questions">
+        <div class="question-card" *ngFor="let question of myForm.controls.questions.controls; let i=index">
+          <mat-card>
+          <div class="question-title_wrapper">
+            <span class="questionTitle">Vraag {{i + 1}}</span>
+            <button class="remove-question_btn" mat-button color="secondary"
+                    (click)="removeQuestion(i)" *ngIf="myForm.controls.questions.controls.length > 1">
+              <mat-icon>
+                delete
+              </mat-icon>
+            </button>
           </div>
-        </div>
 
-        <div [formGroupName]="i">
-          <app-answers [group]="myForm.controls.questions.controls[i]"></app-answers>
+          <div [formGroupName]="i">
+            <app-answers [group]="myForm.controls.questions.controls[i]"></app-answers>
+          </div>
+          </mat-card>
         </div>
       </div>
-    </div>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Opslaan</button>
-  </form>
-  <button mat-fab (click)="addQuestion()">
-    <mat-icon>
-      add
-    </mat-icon>
-  </button>
-</div>
+      <button class="saveQuestions question-buttons" mat-fab color="primary" type="submit" [disabled]="!myForm.valid">
+        <mat-icon>
+          save
+        </mat-icon>
+      </button>
+    </form>
+    <button class="addQuestion question-buttons" mat-fab color="secondary" (click)="addQuestion()">
+      <mat-icon>
+        add
+      </mat-icon>
+    </button>
+  </div>
+
+
+

@@ -1,0 +1,25 @@
+.addQuestion {
+  bottom: 90px;
+}
+
+.question-buttons {
+  position: fixed;
+  right: 20px;
+}
+
+.saveQuestions {
+  bottom: 20px;
+}
+
+
+.questionTitle {
+  font-size: 24px;
+}
+
+.remove-question_btn {
+  float: right;
+}
+
+.question-card {
+  padding-bottom: 20px;
+}

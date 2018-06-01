@@ -10,9 +10,6 @@ import { ConfigurationComponent } from "./components/configuration/configuration
 
 const routes : Routes = [
   {
-    path: 'nav',
-    component: NavComponent
-  },{
     path: 'start',
     component: StartComponent
   },{
@@ -33,7 +30,7 @@ const routes : Routes = [
   },
   {
     path: '',
-    redirectTo: '/nav',
+    redirectTo: '/start',
     pathMatch: 'full'
   }
 ];

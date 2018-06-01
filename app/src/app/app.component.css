@@ -1,12 +1,71 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 body {
   background:#e8e8e8;
   margin: 0;
+  height: calc(100vh - 66px);
+}
+
+h4 {
+  font-weight: 400;
+}
+
+form {
+  margin-right: 0 !important;
 }
 
 .content_wrapper {
   max-width: 75vw;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+.mobileNav_wrapper {
+  left: 0;
+  position: absolute;
+}
+
+.topNav .nav_wrapper .nav_menu {
+  margin: 0;
+}
+.topNav .nav_wrapper .nav_menu li {
+  display:inline;
+}
+
+.sideNav .nav_wrapper .nav_menu {
+  padding: 0 40px;
+}
+
+.next_button {
+  position: absolute;
+  right: 0;
+}
+
+.question-title_wrapper {
+  font-size: 25px;
+  line-height: 37px;
+}
+
+.answer_row mat-form-field{
+  width: 89%;
+  margin-left: 15px;
+}
+
+.question_row mat-form-field {
+  width: 100%;
+}
+
+mat-card, mat-accordion {
+  margin-bottom: 10px;
+}
+
+mat-grid-tile {
+  background: lightgrey;
+  cursor: pointer;
+}
+
+.title {
+  right: 19px;
+  display: block;
+  position: absolute;
 }

@@ -1,17 +1,21 @@
 <mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Voer een naam in"
-         [(ngModel)]="member.name">
+  <input matInput placeholder="Voer een naam in" [(ngModel)]="member.name">
 </mat-form-field>
 
-<button mat-raised-button color="primary" (click)="createMember(member)">
-  Opslaan
+<button mat-button (click)="createMember()">
+  <mat-icon>
+    save
+  </mat-icon>
 </button>
+
 <mat-list *ngIf="members">
   <mat-list-item class="mat-3-line" *ngFor="let member of members">
     {{ member.name }}
-    <div class="mat-secondary-container">
+    <div class="mat-secondary-container next_button">
       <button mat-button (click)="deleteMember(member)">
-        X
+        <mat-icon>
+          delete
+        </mat-icon>
       </button>
     </div>
     <mat-divider ng-if="!$last"></mat-divider>

@@ -5,10 +5,11 @@ TODO:
 - Only one location for node_modules
 - Add mongoose for DB scheme
 - Implement moment
-- Validate date
-- Add Angular Material
+- Validate date & name
 - When score is submitted user can't do same day anymore
 - Implement loading spinners and error scenario's
+- Implement avatars
+
 
 TOWANT:
 - Create as PWA
@@ -16,3 +17,5 @@ TOWANT:
 DONE:
 - Move dist folder to root
 - Response type in delete service
+- Add Angular Material
+- Add toasters

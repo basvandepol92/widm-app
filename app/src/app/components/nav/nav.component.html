@@ -1,6 +1,9 @@
-<nav>
-  <button mat-raised-button routerLink="/start">Start</button>
-  <button mat-raised-button routerLink="/scores">Highscores</button>
-  <button mat-raised-button routerLink="/questions">Vragen</button>
-  <button mat-raised-button routerLink="/configure">Configuration</button>
-</nav>
+<div class="nav_wrapper">
+  <span class="example-spacer"></span>
+  <ul class="nav_menu">
+    <li><a href="#" [routerLink]="'/start'" mat-button>Start</a></li>
+    <li><a href="#" [routerLink]="'/scores'" mat-button>Highscores</a></li>
+    <li><a href="#" [routerLink]="'/questions'" mat-button>Vragen</a></li>
+    <li><a href="#" [routerLink]="'/configure'" mat-button>Configureer</a></li>
+  </ul>
+</div>
