@@ -19,7 +19,6 @@ import { AnswersComponent } from "./components/questions/controls/answers.compon
 import { DaysComponent } from './components/days/days.component';
 import { QuestionsOverviewComponent } from './components/questions/questions-overview/questions-overview.component';
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
-import { DayCreateComponent } from './components/days/day-create/day-create.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 @NgModule({
@@ -32,7 +31,6 @@ import { ConfigurationComponent } from './components/configuration/configuration
     DaysComponent,
     QuestionsOverviewComponent,
     QuestionsAnswerComponent,
-    DayCreateComponent,
     AnswersComponent,
     ConfigurationComponent
   ],

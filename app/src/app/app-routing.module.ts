@@ -13,7 +13,7 @@ const routes : Routes = [
     path: 'start',
     component: StartComponent
   },{
-    path: 'configure',
+    path: 'members',
     component: ConfigurationComponent
   },{
     path: 'days/:memberId',
