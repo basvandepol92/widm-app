@@ -10,8 +10,8 @@ import { MatSnackBar } from "@angular/material";
 })
 export class MembersComponent implements OnInit {
 
-  members: Member[];
-  private member: Member = new Member();
+  public members: Member[];
+  public member: Member = new Member();
 
   constructor(private membersService: MembersService,
               private snackbar: MatSnackBar) { }

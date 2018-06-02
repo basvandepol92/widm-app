@@ -13,9 +13,12 @@ import {QuestionsService} from "../../../services/questions.service";
 })
 export class QuestionsCreateComponent implements OnInit {
   public myForm: FormGroup;
-  dayId: String;
-  questions: Array<String>;
+  public dayId: String;
+  public questions: Array<String>;
 
+  get formData() {
+    return <FormArray>this.myForm.get('questions');
+  }
 
   static setQuestion(questionArray?) {
     const question = questionArray ? questionArray.question : "";
