@@ -15,7 +15,8 @@ form {
 }
 
 .content_wrapper {
-  max-width: 75vw;
+  width: 100%;
+  max-width: 720px;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -33,7 +34,18 @@ form {
 }
 
 .sideNav .nav_wrapper .nav_menu {
-  padding: 0 40px;
+  padding: 0;
+}
+
+.sideNav .mat-button {
+  text-align:left;
+  width: 100%;
+  line-height: 59px;
+  min-width: 150px;
+}
+
+.sideNav .nav_menu li a{
+  padding-left: 32px;
 }
 
 .next_button {
@@ -64,8 +76,34 @@ mat-grid-tile {
   cursor: pointer;
 }
 
+.mat-card {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mat-drawer-container {
+  background: url(https://wieisdemol.avrotros.nl/typo3conf/ext/widm_resources/Resources/Public/GFX/bg-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: right;
+}
+
+
+.mat-toolbar.mat-primary {
+  background: #046704;
+}
+
 .title {
   right: 19px;
   display: block;
   position: absolute;
+  width: 70px;
+  height: 70px;
+}
+
+.logo {
+  background: url('https://wieisdemol.avrotros.nl/typo3conf/ext/widm_resources/Resources/Public/GFX/logo_WIDM.png');
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-size: cover;
 }
