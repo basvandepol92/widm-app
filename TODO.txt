@@ -1,21 +1,23 @@
 TODO:
-- Create a simple deploy script
 - Let admin log in
 - Don't publish /config to git only to Heroku
-- Only one location for node_modules
-- Add mongoose for DB scheme
-- Implement moment
 - Validate date & name
 - When score is submitted user can't do same day anymore
-- Implement loading spinners and error scenario's
+- Implement loading spinners for save and get
+- error scenario's toasters
 - Implement avatars
-
+- Add images to project
+- Active state menu doesn't reflect the correct current page
 
 TOWANT:
 - Create as PWA
+- Add mongoose for DB scheme
+- Only one location for node_modules
+- Create a simple deploy script
 
 DONE:
 - Move dist folder to root
 - Response type in delete service
 - Add Angular Material
 - Add toasters
+- Implement moment
