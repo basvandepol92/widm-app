@@ -3,6 +3,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 const COLLECTION = 'days';
 const SCORE_COLLECTION = 'score';
+const MEMBER_COLLECTION = 'members';
 const ERROR = {'error': 'An error has occurred'};
 
 module.exports = (app, db) => {
@@ -65,12 +66,34 @@ module.exports = (app, db) => {
                     saveObject.score++
                 }
             }
-            saveScore(res, saveObject);
+
+            updateMember(res,saveObject, function(memberUpdated){
+                if(memberUpdated) {
+                    saveScore(res, saveObject);
+                }
+            });
+        });
+    }
+
+    function updateMember(res, saveObject, callback) {
+        const idObject = getIdObject(saveObject.member_id);
+        let updateObject = {
+            $push: {
+                answered_questions: saveObject.day_id
+            }
+        };
+        db.collection(MEMBER_COLLECTION).update(idObject, updateObject, {upsert: true}, (err) => {
+            if (err && err.status !== 200) {
+                res.send(ERROR);
+                return;
+            }
+
+            callback(true);
         });
     }
 
     function saveScore(res, saveObject) {
-        db.collection(SCORE_COLLECTION).insert(saveObject, (err, result) => {
+        db.collection(SCORE_COLLECTION).insert(saveObject, (err) => {
             if (err) {
                 res.send(ERROR);
                 return;

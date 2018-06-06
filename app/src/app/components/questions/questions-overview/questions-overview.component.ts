@@ -4,6 +4,7 @@ import { Day } from "../../../types/day";
 import {ActivatedRoute} from "@angular/router";
 import { MatSnackBar } from "@angular/material";
 
+
 @Component({
   selector: 'app-questions-overview',
   templateUrl: './questions-overview.component.html',
@@ -15,7 +16,8 @@ export class QuestionsOverviewComponent implements OnInit {
 
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
-              private snackbar: MatSnackBar) { }
+              private snackbar: MatSnackBar,
+              ) { }
 
   ngOnInit() {
     this.getDays();

@@ -5,6 +5,7 @@ import { environment } from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class MembersService {
+  members = [];
 
   constructor(private http: HttpClient) { }
 
@@ -25,5 +26,13 @@ export class MembersService {
 
   delete(member) {
     return this.http.delete<Member[]>(`${this.membersUrl}/${member._id}`, this.httpOptions);
+  }
+
+  setMembersArray(members) {
+    this.members = members;
+  }
+
+  getMembersArray() {
+    return this.members;
   }
 }

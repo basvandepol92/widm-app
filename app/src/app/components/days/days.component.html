@@ -3,10 +3,17 @@
 </mat-card>
 <mat-card>
   <mat-list *ngIf="days">
-    <mat-list-item class="mat-3-line" *ngFor="let day of days">
+    <mat-list-item
+      class="mat-3-line"
+      *ngFor="let day of days"
+      [ngClass]="{'daysAnswered': day.answered}">
+
       {{ day.description | date:"dd-MM-yy" }}
       <div class="mat-secondary-container next_button">
-        <button mat-button routerLink="/questions/{{memberId}}/{{day._id}}">
+        <button
+          [disabled]="day.answered === true"
+          mat-button
+          routerLink="/questions/{{memberId}}/{{day._id}}">
           <mat-icon>
             arrow_right
           </mat-icon>

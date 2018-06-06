@@ -29,5 +29,10 @@ export class DaysService {
         return this.http.delete<Day[]>(`${this.daysUrl}/${day._id}`, this.httpOptions);
     }
 
+    getDaysForMember(member:string) {
+        const daysByMemberUrl = `${environment.url}/api/days-by-member/${member}`;
+        return this.http.get<Day[]>(daysByMemberUrl, this.httpOptions)
+    }
+
 
 }

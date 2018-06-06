@@ -1,7 +1,9 @@
 import {Component, OnInit } from '@angular/core';
 import {QuestionsService} from "../../../services/questions.service";
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
+import {MatSnackBar} from "@angular/material";
+
 
 @Component({
   selector: 'app-questions-answer',
@@ -27,7 +29,9 @@ export class QuestionsAnswerComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private questionsService: QuestionsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private snackbar: MatSnackBar,
+              private router: Router) {
 
     this.setQuestions = this.setQuestions.bind(this);
   }
@@ -86,10 +90,13 @@ export class QuestionsAnswerComponent implements OnInit {
     console.log(this.answerObject);
     this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
       .subscribe(response => {
-        /*if(response.status === 200) {
-            console.log('saved');
-            //Change location
-          }*/
+
+        this.snackbar.open(`Antwoorden zijn succesvol opgeslagen`, null, {
+          duration: 1000
+        });
+
+        this.router.navigateByUrl('/start');
+
       });
   }
 

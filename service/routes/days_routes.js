@@ -2,12 +2,14 @@
 const ObjectID = require('mongodb').ObjectID;
 
 const COLLECTION = 'days';
+const MEMBERS_COLLECTION = 'members';
 const ERROR = {'error': 'An error has occurred'};
 
 module.exports = (app, db) => {
 
     //Endpoints
     app.get('/api/days', getDays);
+    app.get('/api/days-by-member/:id', getDaysByMember);
     app.post('/api/days', postDay);
     app.delete('/api/days/:id', deleteDay);
 
@@ -51,6 +53,37 @@ module.exports = (app, db) => {
             res.send({
                 status: `Question ${req.params.id} updated`
             });
+        });
+    }
+
+    function getDaysByMember(req, res) {
+        const memberId = req.params.id;
+        db.collection(COLLECTION).find({}).toArray(function (err, days) {
+            if (err) {
+                res.send(ERROR);
+                return;
+            }
+
+            getMember(res, memberId, function (member) {
+                let memberAnsweredDays = member.answered_questions || [];
+                days.forEach((day) => {
+                    console.log(memberAnsweredDays);
+                    console.log(day._id);
+                    day.answered = memberAnsweredDays.includes(day._id.toString());
+                });
+                res.send(days);
+            });
+        });
+    }
+
+    function getMember(res, memberId, callback) {
+        let queryObject = getIdObject(memberId);
+        db.collection(MEMBERS_COLLECTION).find(queryObject).toArray(function (err, member) {
+            if (err) {
+                res.send(ERROR);
+                return;
+            }
+            callback(member[0]);
         });
     }
 

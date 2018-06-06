@@ -9,7 +9,9 @@ import { MembersService } from "../../services/members.service";
 })
 export class StartComponent implements OnInit {
 
-  constructor(private membersService: MembersService ) { }
+  constructor(private membersService: MembersService ) {
+    this.setMembers = this.setMembers.bind(this);
+  }
   members: Member[];
 
   ngOnInit() {
@@ -18,7 +20,12 @@ export class StartComponent implements OnInit {
 
   getMembers() {
     this.membersService.getMembers()
-      .subscribe(members => this.members = members);
+      .subscribe(this.setMembers);
+  }
+
+  setMembers(members) {
+    this.members = members.sort((a, b) => a.name.localeCompare(b.name));
+    this.membersService.setMembersArray(members);
   }
 
 }

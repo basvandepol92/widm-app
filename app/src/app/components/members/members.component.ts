@@ -24,7 +24,7 @@ export class MembersComponent implements OnInit {
 
   getMembers() {
     this.membersService.getMembers()
-      .subscribe(members => this.members = members);
+      .subscribe(members => this.members = members.sort((a, b) => a.name.localeCompare(b.name)));
   }
 
   createMember() {
