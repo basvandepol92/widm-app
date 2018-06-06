@@ -37,6 +37,6 @@ export class DaysComponent implements OnInit {
   }
 
   setDays(days) {
-    this.days = days;
+    this.days = days.sort((a, b) => a.description.localeCompare(b.description));
   }
 }

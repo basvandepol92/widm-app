@@ -1,13 +1,12 @@
 TODO:
 - Let admin log in
 - Don't publish /config to git only to Heroku
-- Validate date & name
-- When score is submitted user can't do same day anymore
 - Implement loading spinners for save and get
 - error scenario's toasters
 - Implement avatars
 - Add images to project
 - Active state menu doesn't reflect the correct current page
+- Score page
 
 TOWANT:
 - Create as PWA
@@ -21,3 +20,5 @@ DONE:
 - Add Angular Material
 - Add toasters
 - Implement moment
+- When score is submitted user can't do same day anymore
+- Validate date & name

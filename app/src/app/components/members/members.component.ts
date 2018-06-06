@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Member } from "../../types/member";
-import { MembersService } from "../../services/members.service";
-import { MatSnackBar } from "@angular/material";
+import {Component, OnInit} from '@angular/core';
+import {Member} from "../../types/member";
+import {MembersService} from "../../services/members.service";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-members',
@@ -14,7 +14,8 @@ export class MembersComponent implements OnInit {
   public member: Member = new Member();
 
   constructor(private membersService: MembersService,
-              private snackbar: MatSnackBar) { }
+              private snackbar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.getMembers();
@@ -29,12 +30,20 @@ export class MembersComponent implements OnInit {
 
   createMember() {
     const member = this.member;
+    if (!member.name) {
+      this.snackbar.open(`Voer de naam van de persoon in`, null, {
+        duration: 1000
+      });
+      return;
+    }
+
     this.membersService.create(member)
       .subscribe(this.onMemberCreated);
   }
 
   onMemberCreated(member) {
     this.members.push(member);
+    this.members.sort((a, b) => a.name.localeCompare(b.name));
     this.member = new Member();
 
     this.snackbar.open(`${member.name} opgeslagen`, null, {

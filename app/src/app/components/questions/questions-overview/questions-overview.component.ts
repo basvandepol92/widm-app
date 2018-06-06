@@ -22,28 +22,29 @@ export class QuestionsOverviewComponent implements OnInit {
   ngOnInit() {
     this.getDays();
 
-    this.setDays = this.setDays.bind(this);
     this.onDayCreated = this.onDayCreated.bind(this);
   }
 
   getDays() {
     this.daysService.getDays()
-      .subscribe(days => this.days = days)
-  }
-
-
-  setDays(days) {
-    console.log(days);
-    this.days = days
+      .subscribe(days => this.days = days.sort((a, b) => a.description.localeCompare(b.description)))
   }
 
   createDay(day) {
+    if (!day.description) {
+      this.snackbar.open(`Selecteer een dag`, null, {
+        duration: 1000
+      });
+      return;
+    }
+
     this.daysService.create(day)
       .subscribe(this.onDayCreated);
   }
 
   onDayCreated(day) {
     this.days.push(day);
+    this.days.sort((a, b) => a.description.localeCompare(b.description))
     this.newDay = new Day();
 
     this.snackbar.open('Datum opgeslagen', null, {
