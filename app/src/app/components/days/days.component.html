@@ -1,5 +1,6 @@
 <mat-card>
-  <h4>Selecteer de dag om vragen te beantwoorden</h4>
+  <h4 *ngIf="currentMember">{{ currentMember.name }} selecteer een dag om vragen te beantwoorden</h4>
+  <h4 *ngIf="!currentMember">Selecteer een dag om vragen te beantwoorden</h4>
 </mat-card>
 <mat-card>
   <mat-list *ngIf="days">

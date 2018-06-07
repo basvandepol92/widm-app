@@ -71,10 +71,7 @@ mat-card, mat-accordion {
   margin-bottom: 10px;
 }
 
-mat-grid-tile {
-  background: lightgrey;
-  cursor: pointer;
-}
+
 
 .mat-card {
   background: rgba(255, 255, 255, 0.2);

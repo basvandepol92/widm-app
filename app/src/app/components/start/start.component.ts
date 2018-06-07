@@ -10,22 +10,12 @@ import { MembersService } from "../../services/members.service";
 export class StartComponent implements OnInit {
 
   constructor(private membersService: MembersService ) {
-    this.setMembers = this.setMembers.bind(this);
   }
-  members: Member[];
+  members: any;
 
   ngOnInit() {
-    this.getMembers();
+    this.membersService.getMembersArray().then(members => {
+      this.members =  members;
+    });
   }
-
-  getMembers() {
-    this.membersService.getMembers()
-      .subscribe(this.setMembers);
-  }
-
-  setMembers(members) {
-    this.members = members.sort((a, b) => a.name.localeCompare(b.name));
-    this.membersService.setMembersArray(members);
-  }
-
 }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavComponent } from "./components/nav/nav.component";
 import { StartComponent } from "./components/start/start.component";
 import { QuestionsCreateComponent } from "./components/questions/questions-create/questions-create.component";
 import { DaysComponent } from "./components/days/days.component";
 import { QuestionsOverviewComponent } from "./components/questions/questions-overview/questions-overview.component";
 import { QuestionsAnswerComponent } from "./components/questions/questions-answer/questions-answer.component"
 import { ConfigurationComponent } from "./components/configuration/configuration.component";
+import { ScoresOverviewComponent } from "./components/scores/scores-overview/scores-overview.component";
 
 const routes : Routes = [
   {
@@ -18,6 +18,9 @@ const routes : Routes = [
   },{
     path: 'days/:memberId',
     component: DaysComponent
+  },{
+    path: 'scores',
+    component: ScoresOverviewComponent
   },{
     path: 'questions',
     component: QuestionsOverviewComponent

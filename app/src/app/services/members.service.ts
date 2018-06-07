@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { Member } from "../types/member";
-import { environment } from "../../environments/environment";
+import {Member} from "../types/member";
+import {environment} from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class MembersService {
-  members = [];
+  private members = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   private httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin':'*'
+      'Access-Control-Allow-Origin': '*'
     })
   };
   private membersUrl = `${environment.url}/api/members`;
@@ -33,6 +34,17 @@ export class MembersService {
   }
 
   getMembersArray() {
-    return this.members;
+    return new Promise((resolve) => {
+      if (this.members.length > 0) {
+        resolve(this.members);
+        return;
+      }
+
+      this.getMembers().subscribe(members => {
+        members.sort((a, b) => a.name.localeCompare(b.name))
+        this.setMembersArray(members);
+        resolve(members);
+      });
+    })
   }
 }

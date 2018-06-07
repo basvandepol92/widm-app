@@ -10,7 +10,7 @@ import {MatSnackBar} from "@angular/material";
 })
 export class MembersComponent implements OnInit {
 
-  public members: Member[];
+  public members: any;
   public member: Member = new Member();
 
   constructor(private membersService: MembersService,
@@ -18,14 +18,11 @@ export class MembersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMembers();
+    this.membersService.getMembersArray().then(members => {
+      this.members =  members;
+    });
 
     this.onMemberCreated = this.onMemberCreated.bind(this);
-  }
-
-  getMembers() {
-    this.membersService.getMembers()
-      .subscribe(members => this.members = members.sort((a, b) => a.name.localeCompare(b.name)));
   }
 
   createMember() {

@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
 
   <mat-toolbar class="topNav" color="primary" fxShow="true" fxHide.lt-sm="true">
-    <app-nav></app-nav>
+    <app-nav *ngIf="showMenu"></app-nav>
   </mat-toolbar>
 
   <div class="mobileNav_wrapper"
+       *ngIf="showMenu"
        fxShow="true"
        fxHide.gt-xs="true">
     <button mat-button (click)="sidenav.toggle()">

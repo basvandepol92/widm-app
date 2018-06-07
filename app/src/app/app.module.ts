@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule} from '@angular/material';
+import { MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule, MatTableModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
@@ -20,6 +20,7 @@ import { DaysComponent } from './components/days/days.component';
 import { QuestionsOverviewComponent } from './components/questions/questions-overview/questions-overview.component';
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
+import { ScoresOverviewComponent } from './components/scores/scores-overview/scores-overview.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ConfigurationComponent } from './components/configuration/configuration
     QuestionsOverviewComponent,
     QuestionsAnswerComponent,
     AnswersComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    ScoresOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { ConfigurationComponent } from './components/configuration/configuration
     BrowserAnimationsModule,
     MatMomentDateModule,
     FlexLayoutModule,
-    MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule
+    MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule, MatTableModule
   ],
   exports: [MatButtonModule],
   providers: [],

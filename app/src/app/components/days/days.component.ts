@@ -14,7 +14,8 @@ import { Member } from "../../types/member";
 export class DaysComponent implements OnInit {
   public days: Day[];
   public memberId: string;
-  private members: Member[];
+  private members: any;
+  public currentMember: Member;
 
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
@@ -27,8 +28,15 @@ export class DaysComponent implements OnInit {
       this.memberId = params['memberId'];
       this.getDays();
 
-      this.members = this.membersService.getMembersArray();
+      this.membersService.getMembersArray().then(members => {
+        this.members =  members;
+        this.getCurrentMember();
+      });
     });
+  }
+
+  getCurrentMember() {
+    this.currentMember = this.members.filter(member => member._id === this.memberId)[0];
   }
 
   getDays() {

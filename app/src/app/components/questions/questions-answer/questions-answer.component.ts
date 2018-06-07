@@ -87,7 +87,6 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   save() {
-    console.log(this.answerObject);
     this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
       .subscribe(response => {
 

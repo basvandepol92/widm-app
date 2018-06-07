@@ -2,9 +2,11 @@
 const memberRoutes = require('./member_routes');
 const daysRoutes = require('./days_routes');
 const questionRoutes = require('./questions_routes');
+const scoresRoutes = require('./scores_routes');
 
 module.exports = (app, db) => {
     memberRoutes(app, db);
     daysRoutes(app, db);
     questionRoutes(app, db);
+    scoresRoutes(app, db);
 };

@@ -67,8 +67,6 @@ module.exports = (app, db) => {
             getMember(res, memberId, function (member) {
                 let memberAnsweredDays = member.answered_questions || [];
                 days.forEach((day) => {
-                    console.log(memberAnsweredDays);
-                    console.log(day._id);
                     day.answered = memberAnsweredDays.includes(day._id.toString());
                 });
                 res.send(days);

@@ -1,12 +1,24 @@
 TODO:
-- Let admin log in
-- Don't publish /config to git only to Heroku
-- Implement loading spinners for save and get
-- error scenario's toasters
-- Implement avatars
-- Add images to project
-- Active state menu doesn't reflect the correct current page
-- Score page
+- General:
+    - Don't publish /config to git only to Heroku
+    - Implement loading spinners for save and get
+    - error scenario's toasters
+    - Add images to project
+- MongoDB:
+    - Mongodb aggregate via $lookup iso combining query's
+    - Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
+    - Aggregate users in scores
+- Start:
+    - Implement avatars
+- Score:
+    - Meest benoemd als de mol
+- Questions:
+    - Wie-is-de-mol?
+- Bugs:
+    - Active state menu doesn't reflect the correct current page
+    - Close menu when selecting item
+    - Toaster text on day create and remove aren't displayed nicely
+
 
 TOWANT:
 - Create as PWA
@@ -22,3 +34,5 @@ DONE:
 - Implement moment
 - When score is submitted user can't do same day anymore
 - Validate date & name
+- Score page
+- Let admin log in
