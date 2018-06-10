@@ -33,9 +33,9 @@ export class MembersService {
     this.members = members;
   }
 
-  getMembersArray() {
+  getMembersArray(refresh?) {
     return new Promise((resolve) => {
-      if (this.members.length > 0) {
+      if (this.members.length > 0 && refresh !== true) {
         resolve(this.members);
         return;
       }

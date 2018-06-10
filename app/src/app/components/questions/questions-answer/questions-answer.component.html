@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="myForm">
   <h4>Beantwoord alle vragen</h4>
 </mat-card>
 
@@ -63,10 +63,30 @@
       </mat-card>
     </div>
   </div>
+
   <button class="save-questions" mat-fab type="submit" color="primary" [disabled]="!isFormValid()">
     <mat-icon>
       save
     </mat-icon>
   </button>
 </form>
+
+<mat-card *ngIf="myForm">
+  <div class="question-title_wrapper">
+    <span class="questionTitle">Wie is de Mol?</span>
+  </div>
+  <mat-grid-list cols="3" rowHeight="150px" *ngIf="members">
+    <mat-grid-tile *ngFor="let member of members"
+                   (click)="selectMol(member)"
+                   [ngClass]="{'selectedMol': wieIsdeMol == member._id}">
+      <div class="memberTile">
+        <div class="memberAvatar">
+          <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png">
+        </div>
+        <span class="memberName">{{ member.name }}</span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
 

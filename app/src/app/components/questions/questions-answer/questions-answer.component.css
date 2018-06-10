@@ -2,4 +2,23 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
+  z-index: 10;
 }
+
+.memberName {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.memberAvatar img {
+  border: 1px solid #fff;
+  width: 71px;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.selectedMol {
+  background-color: rgba(255,255,255,0.2);
+}
+

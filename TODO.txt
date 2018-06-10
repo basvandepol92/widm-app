@@ -10,13 +10,8 @@ TODO:
     - Aggregate users in scores
 - Start:
     - Implement avatars
-- Score:
-    - Meest benoemd als de mol
-- Questions:
-    - Wie-is-de-mol?
 - Bugs:
     - Active state menu doesn't reflect the correct current page
-    - Close menu when selecting item
     - Toaster text on day create and remove aren't displayed nicely
 
 
@@ -25,6 +20,7 @@ TOWANT:
 - Add mongoose for DB scheme
 - Only one location for node_modules
 - Create a simple deploy script
+- Let admin log in
 
 DONE:
 - Move dist folder to root
@@ -35,4 +31,7 @@ DONE:
 - When score is submitted user can't do same day anymore
 - Validate date & name
 - Score page
-- Let admin log in
+- Wie-is-de-mol?
+- Meest benoemd als de mol
+- Extra points for correct WIDM
+- Close menu when selecting item

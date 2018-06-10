@@ -1,0 +1,55 @@
+.topWIDM {
+  width: 33%;
+  display: inline-block;
+}
+
+.topWidm_Avatar img {
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  padding: 3px;
+}
+
+.WIDM_first .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 100px;
+}
+
+.WIDM_first .topWidm_Avatar img{
+  border: 3px solid gold;
+  width: 100px;
+  z-index: 10;
+  position: relative;
+}
+
+.WIDM_second .topWidm_Avatar img {
+  border: 2px solid silver;
+  opacity: 0.9;
+  width: 90px;
+}
+
+.WIDM_second .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 90px;
+}
+
+.WIDM_third .topWidm_Avatar img {
+  border: 1px solid #8b6909;
+  opacity: 0.8;
+}
+
+.WIDM_third .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 80px;
+}
+
+
+.topWidm_title {
+  width: 100px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}

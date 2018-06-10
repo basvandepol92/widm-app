@@ -6,7 +6,7 @@ import { DaysComponent } from "./components/days/days.component";
 import { QuestionsOverviewComponent } from "./components/questions/questions-overview/questions-overview.component";
 import { QuestionsAnswerComponent } from "./components/questions/questions-answer/questions-answer.component"
 import { ConfigurationComponent } from "./components/configuration/configuration.component";
-import { ScoresOverviewComponent } from "./components/scores/scores-overview/scores-overview.component";
+import { ScoresPageComponent } from "./components/scores/scores-page/scores-page.component";
 
 const routes : Routes = [
   {
@@ -20,7 +20,7 @@ const routes : Routes = [
     component: DaysComponent
   },{
     path: 'scores',
-    component: ScoresOverviewComponent
+    component: ScoresPageComponent
   },{
     path: 'questions',
     component: QuestionsOverviewComponent

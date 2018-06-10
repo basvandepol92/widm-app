@@ -10,7 +10,6 @@ module.exports = (app, db) => {
     app.get('/api/scores', getScores);
 
     function getScores(req, res) {
-        console.log('Y U NO SCORES?');
         db.collection(COLLECTION).aggregate([
             {$group : {"_id": "$member_id", "score": {$sum: "$score"}}}
             ]).toArray(function (err, scores) {

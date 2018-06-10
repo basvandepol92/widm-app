@@ -23,7 +23,15 @@
 <mat-sidenav-container fxFlexFill class="example-container">
   <mat-sidenav class="sideNav"  #sidenav fxLayout="column">
     <div fxLayout="column">
-      <app-nav></app-nav>
+      <div class="nav_wrapper">
+        <span class="example-spacer"></span>
+        <ul class="nav_menu">
+          <li><a href="#" (click)="sidenav.toggle()" [routerLink]="'/start'" mat-button>Start</a></li>
+          <li><a href="#" (click)="sidenav.toggle()" [routerLink]="'/scores'" mat-button>Highscores</a></li>
+          <li><a href="#" (click)="sidenav.toggle()" [routerLink]="'/questions'" mat-button>Vragen</a></li>
+          <li><a href="#" (click)="sidenav.toggle()" [routerLink]="'/members'" mat-button>Leden</a></li>
+        </ul>
+      </div>
     </div>
   </mat-sidenav>
 

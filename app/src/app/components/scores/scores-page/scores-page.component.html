@@ -1,0 +1,38 @@
+<mat-card>
+  Scores
+</mat-card>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Score lijst
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-scores-overview></app-scores-overview>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Top scorers
+      </mat-panel-title>
+      <mat-panel-description>
+        Top 3
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-scores-top></app-scores-top>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Wie is de Mol?
+      </mat-panel-title>
+      <mat-panel-description>
+        Top 3
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <app-scores-widm></app-scores-widm>
+  </mat-expansion-panel>
+</mat-accordion>

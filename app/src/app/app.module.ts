@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule, MatTableModule} from '@angular/material';
+import { MatSelectModule, MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule, MatTableModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
@@ -21,6 +21,10 @@ import { QuestionsOverviewComponent } from './components/questions/questions-ove
 import { QuestionsAnswerComponent } from './components/questions/questions-answer/questions-answer.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { ScoresOverviewComponent } from './components/scores/scores-overview/scores-overview.component';
+import { ScoresPageComponent } from './components/scores/scores-page/scores-page.component';
+import { ScoresWidmComponent } from './components/scores/scores-widm/scores-widm.component';
+import { ScoresTopComponent } from './components/scores/scores-top/scores-top.component';
+import { LoadingStateComponent } from './components/generic/loading-state/loading-state.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ScoresOverviewComponent } from './components/scores/scores-overview/sco
     QuestionsAnswerComponent,
     AnswersComponent,
     ConfigurationComponent,
-    ScoresOverviewComponent
+    ScoresOverviewComponent,
+    ScoresPageComponent,
+    ScoresWidmComponent,
+    ScoresTopComponent,
+    LoadingStateComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,7 @@ import { ScoresOverviewComponent } from './components/scores/scores-overview/sco
     BrowserAnimationsModule,
     MatMomentDateModule,
     FlexLayoutModule,
-    MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule, MatTableModule
+    MatSelectModule, MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule, MatTableModule
   ],
   exports: [MatButtonModule],
   providers: [],

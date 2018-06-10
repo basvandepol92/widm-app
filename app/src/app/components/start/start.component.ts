@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from "../../types/member";
 import { MembersService } from "../../services/members.service";
 
 @Component({
@@ -8,10 +7,9 @@ import { MembersService } from "../../services/members.service";
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
+  public members: any;
 
-  constructor(private membersService: MembersService ) {
-  }
-  members: any;
+  constructor(private membersService: MembersService) {}
 
   ngOnInit() {
     this.membersService.getMembersArray().then(members => {

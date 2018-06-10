@@ -1,9 +1,9 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
 body {
-  background:#e8e8e8;
+  background:#000;
   margin: 0;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 56px);
 }
 
 h4 {
@@ -71,7 +71,9 @@ mat-card, mat-accordion {
   margin-bottom: 10px;
 }
 
-
+.mat-expansion-panel-body {
+  padding-top: 15px !important;
+}
 
 .mat-card {
   background: rgba(255, 255, 255, 0.2);
@@ -88,6 +90,8 @@ mat-card, mat-accordion {
 .mat-toolbar.mat-primary {
   background: #046704;
 }
+
+
 
 .title {
   right: 19px;

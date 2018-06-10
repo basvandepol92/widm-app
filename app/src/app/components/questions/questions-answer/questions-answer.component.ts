@@ -1,8 +1,10 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QuestionsService} from "../../../services/questions.service";
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {MatSnackBar} from "@angular/material";
+import {MembersService} from "../../../services/members.service";
+import {Member} from "../../../types/member";
 
 
 @Component({
@@ -15,6 +17,8 @@ export class QuestionsAnswerComponent implements OnInit {
   private dayId: String;
   private memberId: String;
   private answerObject;
+  private members;
+  public wieIsdeMol;
 
   static setQuestion(questionArray?) {
     return {
@@ -31,16 +35,21 @@ export class QuestionsAnswerComponent implements OnInit {
               private questionsService: QuestionsService,
               private route: ActivatedRoute,
               private snackbar: MatSnackBar,
-              private router: Router) {
+              private router: Router,
+              private membersService: MembersService) {
 
     this.setQuestions = this.setQuestions.bind(this);
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.dayId = params['dayId'];
-      this.memberId = params['memberId'];
-      this.getQuestions();
+      this.membersService.getMembersArray().then(members => {
+        this.members = members;
+
+        this.dayId = params['dayId'];
+        this.memberId = params['memberId'];
+        this.getQuestions();
+      });
     });
   }
 
@@ -72,6 +81,11 @@ export class QuestionsAnswerComponent implements OnInit {
     this.createAnswerObject()
   }
 
+  selectMol(selectedMember) {
+    this.wieIsdeMol = selectedMember._id;
+    this.createAnswerObject();
+  }
+
   createAnswerObject() {
     this.answerObject = this.myForm.value.questions
       .filter((question) => {
@@ -80,10 +94,15 @@ export class QuestionsAnswerComponent implements OnInit {
       .map(question => {
         return question.answered
       })
+
+    if(this.wieIsdeMol) {
+      this.answerObject.push(this.wieIsdeMol);
+    }
   }
 
   isFormValid() {
-    return this.answerObject && this.answerObject.length === this.myForm.value.questions.length
+    return this.answerObject
+      && this.answerObject.length === this.myForm.value.questions.length + 1;
   }
 
   save() {
@@ -98,6 +117,5 @@ export class QuestionsAnswerComponent implements OnInit {
 
       });
   }
-
 
 }
