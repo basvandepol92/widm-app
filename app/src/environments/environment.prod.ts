@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    url: 'https://powerful-meadow-66101.herokuapp.com'
+    url: 'https://wie-is-de-mol.herokuapp.com'
 };

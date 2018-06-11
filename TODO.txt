@@ -10,16 +10,15 @@ TODO:
     - Aggregate users in scores
 - Start:
     - Implement avatars
+    - Change date for start select (e.g. Saturday 14 juli)
 - Bugs:
     - Active state menu doesn't reflect the correct current page
     - Toaster text on day create and remove aren't displayed nicely
-
 
 TOWANT:
 - Create as PWA
 - Add mongoose for DB scheme
 - Only one location for node_modules
-- Create a simple deploy script
 - Let admin log in
 
 DONE:
@@ -35,3 +34,4 @@ DONE:
 - Meest benoemd als de mol
 - Extra points for correct WIDM
 - Close menu when selecting item
+- Create a simple deploy script
