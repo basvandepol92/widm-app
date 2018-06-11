@@ -108,3 +108,64 @@ mat-card, mat-accordion {
   display: block;
   background-size: cover;
 }
+
+.topWIDM {
+  width: 33%;
+  display: inline-block;
+}
+
+.topWidm_Avatar img {
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  padding: 3px;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+
+.WIDM_first .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.WIDM_first .topWidm_Avatar img{
+  border: 3px solid gold;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+
+.WIDM_second .topWidm_Avatar img {
+  border: 2px solid silver;
+  opacity: 0.9;
+  width: 80%;
+}
+
+.WIDM_second .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+}
+
+.WIDM_third .topWidm_Avatar img {
+  border: 1px solid #8b6909;
+  opacity: 0.8;
+  width: 75%;
+}
+
+.WIDM_third .topWidm_Avatar {
+  margin: 0 auto;
+  display: block;
+  width: 75%;
+}
+
+
+.topWidm_title {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
