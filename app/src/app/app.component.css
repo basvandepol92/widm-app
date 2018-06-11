@@ -115,7 +115,7 @@ mat-card, mat-accordion {
 }
 
 .topWidm_Avatar img {
-  width: 80px;
+  width: 100%;
   border-radius: 50%;
   border: 1px solid #fff;
   padding: 3px;
@@ -140,25 +140,23 @@ mat-card, mat-accordion {
 .WIDM_second .topWidm_Avatar img {
   border: 2px solid silver;
   opacity: 0.9;
-  width: 80%;
 }
 
 .WIDM_second .topWidm_Avatar {
   margin: 0 auto;
   display: block;
-  width: 80%;
+  width: 75%;
 }
 
 .WIDM_third .topWidm_Avatar img {
   border: 1px solid #8b6909;
   opacity: 0.8;
-  width: 75%;
 }
 
 .WIDM_third .topWidm_Avatar {
   margin: 0 auto;
   display: block;
-  width: 75%;
+  width: 65%;
 }
 
 
