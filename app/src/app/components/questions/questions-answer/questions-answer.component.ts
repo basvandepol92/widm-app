@@ -5,6 +5,7 @@ import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {MatSnackBar} from "@angular/material";
 import {MembersService} from "../../../services/members.service";
 import {Member} from "../../../types/member";
+import {LoadingStateService} from "../../../services/loading-state.service";
 
 
 @Component({
@@ -37,12 +38,14 @@ export class QuestionsAnswerComponent implements OnInit {
               private route: ActivatedRoute,
               private snackbar: MatSnackBar,
               private router: Router,
-              private membersService: MembersService) {
+              private membersService: MembersService,
+              private loadingStateService: LoadingStateService) {
 
     this.setQuestions = this.setQuestions.bind(this);
   }
 
   ngOnInit() {
+    this.loadingStateService.loading(true);
     this.formSubmitted = false;
 
     this.route.params.subscribe(params => {
@@ -77,6 +80,8 @@ export class QuestionsAnswerComponent implements OnInit {
         control.push(this.initQuestions(prevQuestion));
       });
     }
+
+    this.loadingStateService.loading(false);
   }
 
   onSelectionChange(question, answer) {
@@ -110,11 +115,13 @@ export class QuestionsAnswerComponent implements OnInit {
 
   save() {
     this.formSubmitted = true;
+    this.loadingStateService.loading(true);
 
     this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
       .subscribe(response => {
 
         this.formSubmitted = false;
+        this.loadingStateService.loading(false);
         this.membersService.setMembersSucces(this.memberId);
       });
   }

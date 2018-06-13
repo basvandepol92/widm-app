@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import {Injectable, Output, EventEmitter} from '@angular/core';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class LoadingStateService {
-  private _listners = new Subject<any>();
 
-  listen(): Observable<any> {
-    return this._listners.asObservable();
-  }
+  private isLoading;
+  @Output() change: EventEmitter<any> = new EventEmitter();
 
-  filter(filterBy: string) {
-    this._listners.next(filterBy);
+  loading(isLoading) {
+    if (this.isLoading !== isLoading) {
+      this.isLoading = isLoading;
+      this.change.emit(this.isLoading);
+    }
   }
 }
+
+

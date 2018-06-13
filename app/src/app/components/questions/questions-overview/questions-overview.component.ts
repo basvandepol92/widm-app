@@ -3,7 +3,7 @@ import { DaysService } from "../../../services/days.service";
 import { Day } from "../../../types/day";
 import {ActivatedRoute} from "@angular/router";
 import { MatSnackBar } from "@angular/material";
-
+import {LoadingStateService} from "../../../services/loading-state.service";
 
 @Component({
   selector: 'app-questions-overview',
@@ -17,17 +17,20 @@ export class QuestionsOverviewComponent implements OnInit {
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
               private snackbar: MatSnackBar,
-              ) { }
+              private loadingStateService: LoadingStateService  ) { }
 
   ngOnInit() {
+    this.loadingStateService.loading(true);
     this.getDays();
-
     this.onDayCreated = this.onDayCreated.bind(this);
   }
 
   getDays() {
     this.daysService.getDays()
-      .subscribe(days => this.days = days.sort((a, b) => a.description.localeCompare(b.description)))
+      .subscribe(days => {
+        this.days = days.sort((a, b) => a.description.localeCompare(b.description));
+        this.loadingStateService.loading(false);
+      })
   }
 
   createDay(day) {
@@ -38,6 +41,7 @@ export class QuestionsOverviewComponent implements OnInit {
       return;
     }
 
+    this.loadingStateService.loading(true );
     this.daysService.create(day)
       .subscribe(this.onDayCreated);
   }
@@ -47,6 +51,7 @@ export class QuestionsOverviewComponent implements OnInit {
     this.days.sort((a, b) => a.description.localeCompare(b.description))
     this.newDay = new Day();
 
+    this.loadingStateService.loading(false);
     this.snackbar.open('Datum opgeslagen', null, {
       duration: 1000
     });

@@ -1,12 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import {MembersService} from "../../../services/members.service";
-import {Member} from "../../../types/member";
+import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-success',
   templateUrl: './member-success.component.html',
-  styleUrls: ['./member-success.component.css']
+  styleUrls: ['./member-success.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateX(100%)', opacity: 0}),
+          animate('300ms', style({transform: 'translateX(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateX(0)', opacity: 1}),
+          animate('300ms', style({transform: 'translateX(100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class MemberSuccessComponent implements OnInit {
   private members: any;
@@ -27,7 +41,6 @@ export class MemberSuccessComponent implements OnInit {
 
 
         this.membersService.change.subscribe(memberId => {
-          console.log(memberId);
           this.getCurrentMember(memberId);
         });
       });
@@ -36,8 +49,7 @@ export class MemberSuccessComponent implements OnInit {
 
   getCurrentMember(memberId) {
     this.currentMember = this.members.filter(member => member._id === memberId)[0];
-
-    setTimeout(this.navigateView, 3000);
+    setTimeout(this.navigateView, 3500);
   }
 
   navigateView() {

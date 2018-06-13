@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule, MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule, MatTableModule} from '@angular/material';
+import { MatProgressSpinnerModule, MatSelectModule, MatGridListModule,MatSnackBarModule, MatButtonModule, MatRadioModule, MatSidenavModule, MatTabsModule, MatMenuModule,MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatInputModule, MatListModule, MatExpansionModule, MatTableModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
@@ -54,7 +54,7 @@ import { MemberSuccessComponent } from './components/members/member-success/memb
     BrowserAnimationsModule,
     MatMomentDateModule,
     FlexLayoutModule,
-    MatSelectModule, MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule, MatTableModule
+    MatProgressSpinnerModule, MatSelectModule, MatGridListModule, MatSnackBarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule, MatToolbarModule, MatIconModule, MatCardModule, MatDatepickerModule, MatListModule, MatExpansionModule, MatRadioModule, MatTabsModule, MatTableModule
   ],
   exports: [MatButtonModule],
   providers: [],

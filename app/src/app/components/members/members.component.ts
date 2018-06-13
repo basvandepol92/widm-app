@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Member} from "../../types/member";
 import {MembersService} from "../../services/members.service";
 import {MatSnackBar} from "@angular/material";
+import {LoadingStateService} from "../../services/loading-state.service";
 
 @Component({
   selector: 'app-members',
@@ -14,12 +15,15 @@ export class MembersComponent implements OnInit {
   public member: Member = new Member();
 
   constructor(private membersService: MembersService,
-              private snackbar: MatSnackBar) {
+              private snackbar: MatSnackBar,
+              private loadingStateService: LoadingStateService) {
   }
 
   ngOnInit() {
+    this.loadingStateService.loading(true);
     this.membersService.getMembersArray().then(members => {
       this.members =  members;
+      this.loadingStateService.loading(false);
     });
 
     this.onMemberCreated = this.onMemberCreated.bind(this);
@@ -34,6 +38,7 @@ export class MembersComponent implements OnInit {
       return;
     }
 
+    this.loadingStateService.loading(true);
     this.membersService.create(member)
       .subscribe(this.onMemberCreated);
   }
@@ -43,6 +48,7 @@ export class MembersComponent implements OnInit {
     this.members.sort((a, b) => a.name.localeCompare(b.name));
     this.member = new Member();
 
+    this.loadingStateService.loading(false);
     this.snackbar.open(`${member.name} opgeslagen`, null, {
       duration: 1000
     });

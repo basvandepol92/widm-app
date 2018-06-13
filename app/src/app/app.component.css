@@ -2,9 +2,9 @@
 
 /* ======== OVERWRITES ========= */
 body {
-  background:#000;
+  background: #000;
   margin: 0;
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 h4 {
@@ -14,7 +14,6 @@ h4 {
 form {
   margin-right: 0 !important;
 }
-
 
 /* ======== GENERAL ========= */
 .title {
@@ -26,7 +25,7 @@ form {
 }
 
 .logo {
-  background: url('https://wieisdemol.avrotros.nl/typo3conf/ext/widm_resources/Resources/Public/GFX/logo_WIDM.png');
+  background: url('../assets/widm_logo.png');
   height: 100%;
   width: 100%;
   display: block;
@@ -40,7 +39,6 @@ form {
   margin-top: 20px;
 }
 
-
 /* ======== ANGULAR MATERIAL ========= */
 mat-radio-button {
   width: 100%;
@@ -50,8 +48,9 @@ mat-grid-tile {
   cursor: pointer;
 }
 
+
 mat-grid-tile:hover {
-  background: rgba(255,255,255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 mat-card, mat-accordion {
@@ -63,10 +62,12 @@ mat-card, mat-accordion {
 }
 
 .mat-drawer-container {
-  background: url(https://wieisdemol.avrotros.nl/typo3conf/ext/widm_resources/Resources/Public/GFX/bg-2.png);
+  background: url('../assets/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: right;
+  min-height: 20% !important;
+  height: calc(100vh - 56px) !important;
 }
 
 .mat-toolbar.mat-primary {
@@ -90,8 +91,9 @@ mat-card, mat-accordion {
 .topNav .nav_wrapper .nav_menu {
   margin: 0;
 }
+
 .topNav .nav_wrapper .nav_menu li {
-  display:inline;
+  display: inline;
 }
 
 .sideNav .nav_wrapper .nav_menu {
@@ -99,13 +101,13 @@ mat-card, mat-accordion {
 }
 
 .sideNav .mat-button {
-  text-align:left;
+  text-align: left;
   width: 100%;
   line-height: 59px;
   min-width: 150px;
 }
 
-.sideNav .nav_menu li a{
+.sideNav .nav_menu li a {
   padding-left: 32px;
 }
 
@@ -121,7 +123,7 @@ mat-card, mat-accordion {
   line-height: 37px;
 }
 
-.answer_row mat-form-field{
+.answer_row mat-form-field {
   width: 89%;
   margin-left: 15px;
 }
@@ -153,7 +155,7 @@ mat-card, mat-accordion {
   width: 100%;
 }
 
-.WIDM_first .topWidm_Avatar img{
+.WIDM_first .topWidm_Avatar img {
   border: 3px solid gold;
   width: 100%;
   z-index: 10;
@@ -209,5 +211,20 @@ mat-card, mat-accordion {
 
 .memberAvatar img {
   width: 100%;
+}
+
+/* ======== SUCCESS =========*/
+app-member-success {
+  width: 100%;
+  height: 100%;
+}
+
+app-loading-state {
+  background: rgba(0,0,0,0.7);
+  width: 100vh;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  z-index: 100;
 }
 

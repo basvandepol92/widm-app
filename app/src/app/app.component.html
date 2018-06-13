@@ -1,4 +1,6 @@
-<app-member-success>ABCD</app-member-success>
+<app-member-success></app-member-success>
+<app-loading-state *ngIf="showLoading"></app-loading-state>
+
 <mat-toolbar color="primary">
   <mat-toolbar class="topNav" color="primary" fxShow="true" fxHide.lt-sm="true">
     <app-nav *ngIf="showMenu"></app-nav>

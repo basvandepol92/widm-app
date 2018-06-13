@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {MatSnackBar}  from "@angular/material";
+import {LoadingStateService} from "../../../services/loading-state.service";
 
 import {QuestionsService} from "../../../services/questions.service";
 
@@ -42,7 +43,8 @@ export class QuestionsCreateComponent implements OnInit {
   constructor(private _fb: FormBuilder,
               private questionsService: QuestionsService,
               private route: ActivatedRoute,
-              private snackbar: MatSnackBar) {
+              private snackbar: MatSnackBar,
+              private loadingStateService: LoadingStateService) {
 
     this.setPreviousQuestions = this.setPreviousQuestions.bind(this);
     this.questionsSaved = this.questionsSaved.bind(this);
@@ -50,6 +52,7 @@ export class QuestionsCreateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loadingStateService.loading(true);
     this.formSubmitted = false;
 
     const question = QuestionsCreateComponent.setQuestion();
@@ -111,6 +114,8 @@ export class QuestionsCreateComponent implements OnInit {
         control.push(this.initQuestions(prevQuestion));
       });
     }
+
+    this.loadingStateService.loading(false);
   }
 
   submitFormDisabled() {

@@ -4,6 +4,7 @@ import { DaysService } from "../../services/days.service";
 import { Day } from "../../types/day";
 import {MembersService} from "../../services/members.service";
 import { Member } from "../../types/member";
+import {LoadingStateService} from "../../services/loading-state.service";
 
 
 @Component({
@@ -19,11 +20,13 @@ export class DaysComponent implements OnInit {
 
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
-              private membersService: MembersService) {
+              private membersService: MembersService,
+              private loadingStateService: LoadingStateService) {
     this.setDays = this.setDays.bind(this);
   }
 
   ngOnInit() {
+    this.loadingStateService.loading(true);
     this.route.params.subscribe(params => {
       this.memberId = params['memberId'];
       this.getDays();
@@ -46,5 +49,6 @@ export class DaysComponent implements OnInit {
 
   setDays(days) {
     this.days = days.sort((a, b) => a.description.localeCompare(b.description));
+    this.loadingStateService.loading(false);
   }
 }

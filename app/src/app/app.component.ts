@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
+import {LoadingStateService} from "./services/loading-state.service";
 
 
 @Component({
@@ -11,9 +12,11 @@ import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 export class AppComponent implements OnInit {
   title = 'WIDM app';
   showMenu = true; //Set to false on deploying
+  showLoading = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private loadingStateService: LoadingStateService) {
     const that = this;
     if (this.showMenu !== true) {
       this.activatedRoute.queryParams.subscribe(params => {
@@ -30,6 +33,11 @@ export class AppComponent implements OnInit {
         return;
       }
       window.scrollTo(0, 0)
+    });
+
+    this.loadingStateService.change.subscribe(showLoading => {
+      console.log(showLoading);
+      this.showLoading = showLoading;
     });
   }
 }

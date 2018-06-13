@@ -1,9 +1,6 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-    - Implement loading spinners for save and get
-    - error scenario's toasters
-    - Add images to project
     - Navigational bar at the bottom (for iOS)
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
@@ -11,8 +8,6 @@ TODO:
     - Aggregate users in scores
 - Start:
     - Implement avatars
-- Success:
-    - Nice animations
 - Bugs:
     - Active state menu doesn't reflect the correct current page
     - Toaster text on day create and remove aren't displayed with nice dateformatting
@@ -27,6 +22,7 @@ TOWANT:
 
 DONE:
 - Move dist folder to root
+- Add images to project
 - Response type in delete service
 - Add Angular Material
 - Add toasters
@@ -43,3 +39,6 @@ DONE:
 - Select labels for answers should be 100% width
 - Change date for start select (e.g. Saturday 14 juli)
 - Navigate to a screen after saving the answer to questions
+- Success page Nice animations
+- Success page Background-image change
+- Implement loading spinners for save and get
