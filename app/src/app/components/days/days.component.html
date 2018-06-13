@@ -9,7 +9,7 @@
       *ngFor="let day of days"
       [ngClass]="{'daysAnswered': day.answered}">
 
-      {{ day.description | date:"dd-MM-yy" }}
+      {{ day.description | date:"EEEE dd MMMM" }}
       <div class="mat-secondary-container next_button">
         <button
           [disabled]="day.answered === true"

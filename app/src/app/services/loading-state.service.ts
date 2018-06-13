@@ -13,5 +13,4 @@ export class LoadingStateService {
   filter(filterBy: string) {
     this._listners.next(filterBy);
   }
-
 }

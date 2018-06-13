@@ -15,6 +15,7 @@ export class QuestionsCreateComponent implements OnInit {
   public myForm: FormGroup;
   public dayId: String;
   public questions: Array<String>;
+  public formSubmitted: boolean;
 
   get formData() {
     return <FormArray>this.myForm.get('questions');
@@ -49,6 +50,8 @@ export class QuestionsCreateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.formSubmitted = false;
+
     const question = QuestionsCreateComponent.setQuestion();
     this.myForm = this._fb.group({
       questions: this._fb.array([
@@ -58,6 +61,7 @@ export class QuestionsCreateComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.dayId = params['dayId'];
+
       this.getPreviousQuestions();
     });
   }
@@ -78,11 +82,13 @@ export class QuestionsCreateComponent implements OnInit {
   }
 
   save(model) {
+    this.formSubmitted = true;
     this.questionsService.create(model.value, this.dayId)
       .subscribe(this.questionsSaved);
   }
 
   questionsSaved() {
+    this.formSubmitted = false;
     this.snackbar.open(`Vragen zijn opgeslagen`, null, {
       duration: 1000
     });
@@ -105,6 +111,10 @@ export class QuestionsCreateComponent implements OnInit {
         control.push(this.initQuestions(prevQuestion));
       });
     }
+  }
+
+  submitFormDisabled() {
+    return !this.myForm.valid || this.formSubmitted
   }
 }
 

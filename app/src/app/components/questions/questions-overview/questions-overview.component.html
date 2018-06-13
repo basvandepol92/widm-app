@@ -20,7 +20,7 @@
 <mat-card>
   <mat-list *ngIf="days">
     <mat-list-item class="mat-3-line" *ngFor="let day of days">
-      {{ day.description  | date:"dd-MM-yy" }}
+      {{ day.description  | date:"EEEE dd MMMM" }}
       <div class="mat-secondary-container next_button">
         <button mat-icon-button (click)="deleteDay(day)">
           <mat-icon>

@@ -6,7 +6,6 @@ import { MatSelectModule, MatGridListModule,MatSnackBarModule, MatButtonModule, 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
-
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
@@ -25,6 +24,7 @@ import { ScoresPageComponent } from './components/scores/scores-page/scores-page
 import { ScoresWidmComponent } from './components/scores/scores-widm/scores-widm.component';
 import { ScoresTopComponent } from './components/scores/scores-top/scores-top.component';
 import { LoadingStateComponent } from './components/generic/loading-state/loading-state.component';
+import { MemberSuccessComponent } from './components/members/member-success/member-success.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { LoadingStateComponent } from './components/generic/loading-state/loadin
     ScoresPageComponent,
     ScoresWidmComponent,
     ScoresTopComponent,
-    LoadingStateComponent
+    LoadingStateComponent,
+    MemberSuccessComponent
   ],
   imports: [
     BrowserModule,

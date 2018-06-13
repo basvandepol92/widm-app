@@ -4,22 +4,26 @@ TODO:
     - Implement loading spinners for save and get
     - error scenario's toasters
     - Add images to project
+    - Navigational bar at the bottom (for iOS)
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
     - Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
     - Aggregate users in scores
 - Start:
     - Implement avatars
-    - Change date for start select (e.g. Saturday 14 juli)
+- Success:
+    - Nice animations
 - Bugs:
     - Active state menu doesn't reflect the correct current page
-    - Toaster text on day create and remove aren't displayed nicely
+    - Toaster text on day create and remove aren't displayed with nice dateformatting
 
 TOWANT:
 - Create as PWA
 - Add mongoose for DB scheme
 - Only one location for node_modules
 - Let admin log in
+- For what days are you creating the questions
+- i18n for days
 
 DONE:
 - Move dist folder to root
@@ -35,3 +39,7 @@ DONE:
 - Extra points for correct WIDM
 - Close menu when selecting item
 - Create a simple deploy script
+- Disable buttons while sending for not sending twice
+- Select labels for answers should be 100% width
+- Change date for start select (e.g. Saturday 14 juli)
+- Navigate to a screen after saving the answer to questions

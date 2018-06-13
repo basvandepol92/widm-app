@@ -19,6 +19,7 @@ export class QuestionsAnswerComponent implements OnInit {
   private answerObject;
   private members;
   public wieIsdeMol;
+  private formSubmitted: boolean;
 
   static setQuestion(questionArray?) {
     return {
@@ -42,6 +43,8 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formSubmitted = false;
+
     this.route.params.subscribe(params => {
       this.membersService.getMembersArray().then(members => {
         this.members = members;
@@ -106,16 +109,18 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   save() {
+    this.formSubmitted = true;
+
     this.questionsService.saveAnswers(this.answerObject, this.dayId, this.memberId)
       .subscribe(response => {
 
-        this.snackbar.open(`Antwoorden zijn succesvol opgeslagen`, null, {
-          duration: 1000
-        });
-
-        this.router.navigateByUrl('/start');
-
+        this.formSubmitted = false;
+        this.membersService.setMembersSucces(this.memberId);
       });
+  }
+
+  submitFormDisabled() {
+    return !this.isFormValid() || this.formSubmitted
   }
 
 }

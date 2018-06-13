@@ -1,10 +1,13 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Output, EventEmitter} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Member} from "../types/member";
 import {environment} from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class MembersService {
+  private succesfullMember;
+  @Output() change: EventEmitter<any> = new EventEmitter();
+
   private members = [];
 
   constructor(private http: HttpClient) {
@@ -46,5 +49,10 @@ export class MembersService {
         resolve(members);
       });
     })
+  }
+
+  setMembersSucces(member) {
+    this.succesfullMember = member;
+    this.change.emit(this.succesfullMember);
   }
 }
