@@ -5,7 +5,7 @@ const COLLECTION = 'days';
 const SCORE_COLLECTION = 'score';
 const MEMBER_COLLECTION = 'members';
 const ERROR = {'error': 'An error has occurred'};
-const WIDM_ID = '5b1d7a9476dfc00518964297';
+const WIDM_ID = '5b2211ac3a01c900201e2121';
 
 module.exports = (app, db) => {
 
