@@ -1,14 +1,16 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-    - Navigational bar at the bottom (for iOS)
+    - Navigational bar at the bottom (for iOS, which doesn't have a back button)
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
     - Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
     - Aggregate users in scores
 - Start:
     - Implement avatars
+- Uitleg scherm voor testers
 - Bugs:
+    - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
     - Active state menu doesn't reflect the correct current page
     - Toaster text on day create and remove aren't displayed with nice dateformatting
 
@@ -42,3 +44,4 @@ DONE:
 - Success page Nice animations
 - Success page Background-image change
 - Implement loading spinners for save and get
+- Loading spinner on Android isn't displayed correctly

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MembersService } from "../../../services/members.service";
+import {Component, OnInit} from '@angular/core';
+import {MembersService} from "../../../services/members.service";
 
 @Component({
   selector: 'app-scores-widm',
@@ -9,7 +9,8 @@ import { MembersService } from "../../../services/members.service";
 export class ScoresWidmComponent implements OnInit {
   public members;
 
-  constructor(private membersService: MembersService) { }
+  constructor(private membersService: MembersService) {
+  }
 
   ngOnInit() {
     this.membersService.getMembersArray(true).then(members => {
@@ -20,10 +21,12 @@ export class ScoresWidmComponent implements OnInit {
   }
 
   getTopWIDM() {
-    this.members = this.members
-      .filter(a => a.markedAsMol)
-      .sort((a,b) => b.markedAsMol - a.markedAsMol)
-      .slice(0, 3);
+    if (this.members.length > 0) {
+      this.members = this.members
+        .filter(a => a.markedAsMol)
+        .sort((a, b) => b.markedAsMol - a.markedAsMol)
+        .slice(0, 3);
+    }
   }
 
 }

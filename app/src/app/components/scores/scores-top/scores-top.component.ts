@@ -30,14 +30,16 @@ export class ScoresTopComponent implements OnInit {
   }
 
   setScores(scores) {
-    this.topScorers = this.members
-      .map(member => {
-        const score = scores.filter(score => score._id === member._id)[0];
-        member = {...score, ...member};
-        member.score = member.score || 0;
-        return member;
-      })
-      .sort((a, b) => b.score - a.score)
-      .slice(0,3);
+    if(scores && this.members.length > 0) {
+      this.topScorers = this.members
+        .map(member => {
+          const score = scores.filter(score => score._id === member._id)[0];
+          member = {...score, ...member};
+          member.score = member.score || 0;
+          return member;
+        })
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3);
+    }
   }
 }

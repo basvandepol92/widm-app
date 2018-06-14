@@ -11,13 +11,15 @@ import {LoadingStateService} from "./services/loading-state.service";
 })
 export class AppComponent implements OnInit {
   title = 'WIDM app';
-  showMenu = true; //Set to false on deploying
+  showMenu = false; //Set to false on deploying
   showLoading = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private loadingStateService: LoadingStateService) {
+
     const that = this;
+
     if (this.showMenu !== true) {
       this.activatedRoute.queryParams.subscribe(params => {
         if (params['admin'] === 'true') {
@@ -36,7 +38,6 @@ export class AppComponent implements OnInit {
     });
 
     this.loadingStateService.change.subscribe(showLoading => {
-      console.log(showLoading);
       this.showLoading = showLoading;
     });
   }
