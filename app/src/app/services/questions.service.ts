@@ -14,6 +14,7 @@ export class QuestionsService {
     })
   };
   private questionsUrl = `${environment.url}/api/questions`;
+  private questionsWithAnswersUrl = `${environment.url}/api/questions-with-answers`;
 
   create(questions, dayId: String) {
     return this.http.put(`${this.questionsUrl}/${dayId}`, questions, this.httpOptions);
@@ -21,6 +22,10 @@ export class QuestionsService {
 
   get(dayId: String) {
     return this.http.get(`${this.questionsUrl}/${dayId}`, this.httpOptions);
+  }
+
+  getWithAnswers(dayId: String) {
+    return this.http.get(`${this.questionsWithAnswersUrl}/${dayId}`, this.httpOptions);
   }
 
   saveAnswers(answers, dayId, memberId) {

@@ -6,7 +6,6 @@ TODO:
     - Scherm voor tussenstand van de kas?
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
-    - Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
     - Aggregate users in scores
 - Start:
     - Implement avatars
@@ -15,7 +14,8 @@ TODO:
     - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
     - Active state menu doesn't reflect the correct current page
     - Toaster text on day create and remove aren't displayed with nice dateformatting
-    - Loadingspinner on creating and saving questions
+    - Loadingspinner on loading/creating and saving questions
+    - Days-by-members also returns questions?
 
 TOWANT:
 - Create as PWA
@@ -48,3 +48,5 @@ DONE:
 - Success page Background-image change
 - Implement loading spinners for save and get
 - Loading spinner on Android isn't displayed correctly
+- Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
+- Answers should be returned on questions create

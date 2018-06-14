@@ -98,7 +98,7 @@ export class QuestionsCreateComponent implements OnInit {
   }
 
   getPreviousQuestions() {
-    this.questionsService.get(this.dayId)
+    this.questionsService.getWithAnswers(this.dayId)
       .subscribe(this.setPreviousQuestions);
   }
 

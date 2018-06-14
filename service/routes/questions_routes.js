@@ -11,7 +11,8 @@ module.exports = (app, db) => {
 
     //Endpoints
     app.put('/api/questions/:id', postQuestions);
-    app.get('/api/questions/:id', getQuestions);
+    app.get('/api/questions/:id', getQuestionsWithoutAnswers);
+    app.get('/api/questions-with-answers/:id', getQuestionsWithAnswers);
     app.post('/api/questions/:dayid/:memberid', validateAnswers);
 
     function postQuestions(req, res) {
@@ -34,10 +35,22 @@ module.exports = (app, db) => {
         });
     }
 
-    function getQuestions(req, res) {
+    function getQuestionsWithoutAnswers(req, res) {
         const queryObject = getIdObject(req.params.id);
+        const excludeObject = { 'questions.correct_answer':0 };
 
-        db.collection(COLLECTION).find(queryObject).toArray(function (err, day) {
+        getQuestions(req, res, queryObject, excludeObject);
+    }
+
+    function getQuestionsWithAnswers(req, res) {
+        const queryObject = getIdObject(req.params.id);
+        const excludeObject = {};
+
+        getQuestions(req, res, queryObject, excludeObject);
+    }
+
+    function getQuestions(req, res, queryObject, excludeObject) {
+        db.collection(COLLECTION).find(queryObject, excludeObject).toArray(function (err, day) {
             if (err) {
                 res.send(ERROR);
                 return;
