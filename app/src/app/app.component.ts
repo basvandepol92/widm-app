@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {LoadingStateService} from "./services/loading-state.service";
-
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import {LoadingStateService} from "./services/loading-state.service";
 })
 export class AppComponent implements OnInit {
   title = 'WIDM app';
-  showMenu = false; //Set to false on deploying
+  showMenu = environment.showMenu; //Set to false on deploying
   showLoading = false;
 
   constructor(private activatedRoute: ActivatedRoute,

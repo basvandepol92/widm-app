@@ -81,7 +81,7 @@
                    [ngClass]="{'selectedMol': wieIsdeMol == member._id}">
       <div class="memberTile">
         <div class="memberAvatar">
-          <img src="../../../../assets/avatar.png">
+          <img [src]="'../../../../assets/avatars/'+member._id+'.png'">
         </div>
         <span class="memberName">{{ member.name }}</span>
       </div>

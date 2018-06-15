@@ -12,12 +12,9 @@
 
       {{ day.description | date:"EEEE dd MMMM" }}
       <div class="mat-secondary-container next_button">
-        <button
-          mat-button>
           <mat-icon>
             arrow_right
           </mat-icon>
-        </button>
       </div>
       <mat-divider *ngIf="!$last"></mat-divider>
     </mat-list-item>

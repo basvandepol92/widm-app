@@ -4,7 +4,7 @@
   <div class="memberTile">
     <span class="memberName">{{ currentMember.name }}</span>
     <div class="memberAvatar">
-      <img src="../../../../assets/avatar.png">
+      <img [src]="'../../../../assets/avatars/'+currentMember._id+'.png'">
     </div>
     <span class="message">JE ANTWOORDEN ZIJN SUCCESVOL OPGESLAGEN</span>
   </div>

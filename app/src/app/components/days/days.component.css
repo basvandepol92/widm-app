@@ -5,3 +5,7 @@
 .selectDays {
   cursor: pointer;
 }
+
+mat-icon {
+  padding-right: 16px;
+}

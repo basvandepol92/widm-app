@@ -1,10 +1,10 @@
 // routes/service_routes.js
 const ObjectID = require('mongodb').ObjectID;
+const WIDM_ID = require('./config').WIDM_ID;
 
 const COLLECTION = 'score';
 const MEMBER_COLLECTION = 'members';
 const ERROR = {'error': 'An error has occurred'};
-const WIDM_ID = '5b2211ac3a01c900201e2121';
 
 module.exports = (app, db) => {
 
@@ -36,7 +36,7 @@ module.exports = (app, db) => {
 
             let score = {
               'score': member[0].markedAsMol || 0
-            }
+            };
 
             res.send(score);
         });

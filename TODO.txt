@@ -1,17 +1,12 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-    - Navigational bar at the bottom (for iOS, which doesn't have a back button)
-    - Uitleg scherm voor testers
+- Scores:
     - Scherm voor tussenstand van de kas? + counter animations
-    - (Node route) WIDM ID out of only one source
-- Start:
-    - Implement avatars
 - Bugs:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
     - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
     - Loadingspinner on loading/creating and saving questions
-    - Validate if user already has done a question (on page load)
 
 TOWANT:
 - Create as PWA
@@ -22,6 +17,7 @@ TOWANT:
 - i18n for days
 - Toaster text on day create and remove aren't displayed with nice dateformatting
 - Active state menu doesn't reflect the correct current page
+- Navigational bar at the bottom (for iOS, which doesn't have a back button)
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
     - Aggregate users in scores
@@ -56,3 +52,6 @@ DONE:
 - Alignment of avatars when person has a long name
 - How many times has 'De Mol' been selected?
 - Days-by-members also returns questions (which also contains the answers)
+- WIDM ID out of only one source
+- Validate if user already has done a question (on page load)
+- Implement avatars

@@ -1,19 +1,21 @@
 // routes/service_routes.js
 const ObjectID = require('mongodb').ObjectID;
+const WIDM_ID = require('./config').WIDM_ID;
 
 const COLLECTION = 'days';
 const SCORE_COLLECTION = 'score';
 const MEMBER_COLLECTION = 'members';
 const ERROR = {'error': 'An error has occurred'};
-const WIDM_ID = '5b2211ac3a01c900201e2121';
+const ALREADY_ANSWERED_ERROR = {'error': 'An error has occurred', 'already_answered': true};
+
 
 module.exports = (app, db) => {
 
     //Endpoints
     app.put('/api/questions/:id', postQuestions);
-    app.get('/api/questions/:id', getQuestionsWithoutAnswers);
     app.get('/api/questions-with-answers/:id', getQuestionsWithAnswers);
     app.post('/api/questions/:dayid/:memberid', validateAnswers);
+    app.get('/api/questions/:id/:memberid', getQuestionsWithoutAnswers);
 
     function postQuestions(req, res) {
         const queryObject = getIdObject(req.params.id);
@@ -37,9 +39,42 @@ module.exports = (app, db) => {
 
     function getQuestionsWithoutAnswers(req, res) {
         const queryObject = getIdObject(req.params.id);
-        const excludeObject = { 'questions.correct_answer':0 };
+        const excludeObject = {'questions.correct_answer': 0};
 
-        getQuestions(req, res, queryObject, excludeObject);
+        checkIfUserHasAnsweredBefore(req.params.memberid, req.params.id, function (alreadyAnswered) {
+            if (alreadyAnswered) {
+                res.send(ALREADY_ANSWERED_ERROR);
+                return;
+            }
+
+            getQuestions(req, res, queryObject, excludeObject);
+        });
+    }
+
+    function checkIfUserHasAnsweredBefore(memberId, dayId, callback) {
+        const queryObject = getIdObject(memberId);
+        db.collection(MEMBER_COLLECTION).find(queryObject).toArray(function (err, members) {
+            if (err || members.length === 0) {
+                callback(true);
+                return;
+            }
+
+            let answeredQuestion = false;
+            const member = members[0];
+            let answeredQuestionArray = [];
+
+            if (member && member.answered_questions) {
+                answeredQuestionArray = member.answered_questions.filter(function (answer) {
+                    return answer === dayId;
+                });
+            }
+
+            if (answeredQuestionArray.length > 0) {
+                answeredQuestion = true;
+            }
+
+            callback(answeredQuestion);
+        });
     }
 
     function getQuestionsWithAnswers(req, res) {
@@ -81,7 +116,7 @@ module.exports = (app, db) => {
                 }
             }
 
-            if(req.body[req.body.length - 1] === WIDM_ID) {
+            if (req.body[req.body.length - 1] === WIDM_ID) {
                 saveObject.score += 2;
             }
 

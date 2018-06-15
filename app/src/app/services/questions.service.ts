@@ -20,8 +20,8 @@ export class QuestionsService {
     return this.http.put(`${this.questionsUrl}/${dayId}`, questions, this.httpOptions);
   }
 
-  get(dayId: String) {
-    return this.http.get(`${this.questionsUrl}/${dayId}`, this.httpOptions);
+  get(dayId: String, memberId: String) {
+    return this.http.get(`${this.questionsUrl}/${dayId}/${memberId}`, this.httpOptions);
   }
 
   getWithAnswers(dayId: String) {

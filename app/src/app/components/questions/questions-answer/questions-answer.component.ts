@@ -60,7 +60,7 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   getQuestions() {
-    this.questionsService.get(this.dayId)
+    this.questionsService.get(this.dayId, this.memberId)
       .subscribe(this.setQuestions);
   }
 
@@ -69,6 +69,15 @@ export class QuestionsAnswerComponent implements OnInit {
   }
 
   setQuestions(questions) {
+    if(questions && questions.already_answered === true) {
+      this.snackbar.open(`Helaas je hebt deze vragen al beantwoord`, null, {
+        duration: 1000
+      });
+
+      this.loadingStateService.loading(false);
+      return;
+    }
+
     if (questions && questions.length > 0) {
       this.myForm = this._fb.group({
         questions: this._fb.array([])

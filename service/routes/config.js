@@ -1,0 +1,3 @@
+const WIDM_ID = "5b2211ac3a01c900201e2121";
+
+exports.WIDM_ID = WIDM_ID;
