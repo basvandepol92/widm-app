@@ -3,19 +3,16 @@ TODO:
     - Don't publish /config to git only to Heroku
     - Navigational bar at the bottom (for iOS, which doesn't have a back button)
     - Uitleg scherm voor testers
-    - Scherm voor tussenstand van de kas?
-- MongoDB:
-    - Mongodb aggregate via $lookup iso combining query's
-    - Aggregate users in scores
+    - Scherm voor tussenstand van de kas? + counter animations
+    - Validate if user already has done a question (on page load)
+    - (Node route) WIDM ID out of only one source
 - Start:
     - Implement avatars
 - Bugs:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
     - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
-    - Active state menu doesn't reflect the correct current page
-    - Toaster text on day create and remove aren't displayed with nice dateformatting
     - Loadingspinner on loading/creating and saving questions
-    - Days-by-members also returns questions?
+    - Days-by-members also returns questions (which also contains the answers)
 
 TOWANT:
 - Create as PWA
@@ -24,6 +21,11 @@ TOWANT:
 - Let admin log in
 - For what days are you creating the questions
 - i18n for days
+- Toaster text on day create and remove aren't displayed with nice dateformatting
+- Active state menu doesn't reflect the correct current page
+- MongoDB:
+    - Mongodb aggregate via $lookup iso combining query's
+    - Aggregate users in scores
 
 DONE:
 - Move dist folder to root
@@ -50,3 +52,7 @@ DONE:
 - Loading spinner on Android isn't displayed correctly
 - Exclude fields that shouldn't be returned to the front-end (e.g. correct answers to questions)
 - Answers should be returned on questions create
+- Select days to answer -> Select entire row and not only the arrow icon
+- Selecting 'De Mol' show logo icon
+- Alignment of avatars when person has a long name
+- How many times has 'De Mol' been selected?

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DaysService } from "../../services/days.service";
 import { Day } from "../../types/day";
 import {MembersService} from "../../services/members.service";
@@ -21,7 +21,8 @@ export class DaysComponent implements OnInit {
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
               private membersService: MembersService,
-              private loadingStateService: LoadingStateService) {
+              private loadingStateService: LoadingStateService,
+              private router: Router) {
     this.setDays = this.setDays.bind(this);
   }
 
@@ -50,5 +51,13 @@ export class DaysComponent implements OnInit {
   setDays(days) {
     this.days = days.sort((a, b) => a.description.localeCompare(b.description));
     this.loadingStateService.loading(false);
+  }
+
+  openUrl(day) {
+    if(day.answered) {
+      return;
+    }
+
+    this.router.navigateByUrl(`/questions/${this.memberId}/${day._id}`);
   }
 }

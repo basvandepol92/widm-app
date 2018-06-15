@@ -5,22 +5,21 @@
 <mat-card>
   <mat-list *ngIf="days">
     <mat-list-item
-      class="mat-3-line"
+      class="mat-3-line selectDays"
       *ngFor="let day of days"
-      [ngClass]="{'daysAnswered': day.answered}">
+      [ngClass]="{'daysAnswered': day.answered}"
+      (click)="openUrl(day)">
 
       {{ day.description | date:"EEEE dd MMMM" }}
       <div class="mat-secondary-container next_button">
         <button
-          [disabled]="day.answered === true"
-          mat-button
-          routerLink="/questions/{{memberId}}/{{day._id}}">
+          mat-button>
           <mat-icon>
             arrow_right
           </mat-icon>
         </button>
       </div>
-      <mat-divider ng-if="!$last"></mat-divider>
+      <mat-divider *ngIf="!$last"></mat-divider>
     </mat-list-item>
   </mat-list>
 </mat-card>

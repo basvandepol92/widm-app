@@ -25,6 +25,7 @@ import { ScoresWidmComponent } from './components/scores/scores-widm/scores-widm
 import { ScoresTopComponent } from './components/scores/scores-top/scores-top.component';
 import { LoadingStateComponent } from './components/generic/loading-state/loading-state.component';
 import { MemberSuccessComponent } from './components/members/member-success/member-success.component';
+import { ScoresTotalCorrectWidmComponent } from './components/scores-total-correct-widm/scores-total-correct-widm.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MemberSuccessComponent } from './components/members/member-success/memb
     ScoresWidmComponent,
     ScoresTopComponent,
     LoadingStateComponent,
-    MemberSuccessComponent
+    MemberSuccessComponent,
+    ScoresTotalCorrectWidmComponent
   ],
   imports: [
     BrowserModule,
