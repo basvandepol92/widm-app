@@ -58,7 +58,7 @@ module.exports = (app, db) => {
 
     function getDaysByMember(req, res) {
         const memberId = req.params.id;
-        db.collection(COLLECTION).find({}).toArray(function (err, days) {
+        db.collection(COLLECTION).find({}, { 'questions': 0 }).toArray(function (err, days) {
             if (err) {
                 res.send(ERROR);
                 return;

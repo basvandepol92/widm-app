@@ -4,7 +4,6 @@ TODO:
     - Navigational bar at the bottom (for iOS, which doesn't have a back button)
     - Uitleg scherm voor testers
     - Scherm voor tussenstand van de kas? + counter animations
-    - Validate if user already has done a question (on page load)
     - (Node route) WIDM ID out of only one source
 - Start:
     - Implement avatars
@@ -12,7 +11,7 @@ TODO:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
     - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
     - Loadingspinner on loading/creating and saving questions
-    - Days-by-members also returns questions (which also contains the answers)
+    - Validate if user already has done a question (on page load)
 
 TOWANT:
 - Create as PWA
@@ -56,3 +55,4 @@ DONE:
 - Selecting 'De Mol' show logo icon
 - Alignment of avatars when person has a long name
 - How many times has 'De Mol' been selected?
+- Days-by-members also returns questions (which also contains the answers)
