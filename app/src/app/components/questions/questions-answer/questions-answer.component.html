@@ -1,5 +1,10 @@
 <mat-card *ngIf="myForm">
-  <h4>Beantwoord alle vragen</h4>
+  <div *ngIf="currentMember">
+    <div class="memberAvatar">
+      <img [src]="'../../../../assets/avatars/'+currentMember._id+'.png'">
+    </div>
+    <h4 class="answerTitle">{{currentMember.name }} beantwoord alle vragen</h4>
+  </div>
 </mat-card>
 
 <mat-card *ngIf="!myForm">
@@ -51,10 +56,10 @@
 
             <mat-list-item class="mat-3-line">
               <mat-radio-button type="radio"
-                     [value]="question.value.answer_d"
-                     name="radiogroup{{i}}"
-                     (change)="onSelectionChange(question, question.value.answer_d)">
-              {{question.value.answer_d}}
+                                [value]="question.value.answer_d"
+                                name="radiogroup{{i}}"
+                                (change)="onSelectionChange(question, question.value.answer_d)">
+                {{question.value.answer_d}}
               </mat-radio-button>
             </mat-list-item>
 

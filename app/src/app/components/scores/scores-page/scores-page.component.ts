@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoresPageComponent implements OnInit {
 
+  showView = false;
+
   constructor() { }
 
   ngOnInit() {
+    this.showView = localStorage.getItem('admin') === 'true' ? true : false;
   }
 
 }

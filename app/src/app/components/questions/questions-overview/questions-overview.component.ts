@@ -13,6 +13,7 @@ import {LoadingStateService} from "../../../services/loading-state.service";
 export class QuestionsOverviewComponent implements OnInit {
   public days: Day[];
   public newDay: Day = new Day();
+  showView = false;
 
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
@@ -23,6 +24,8 @@ export class QuestionsOverviewComponent implements OnInit {
     this.loadingStateService.loading(true);
     this.getDays();
     this.onDayCreated = this.onDayCreated.bind(this);
+
+    this.showView = localStorage.getItem('admin') === 'true' ? true : false;
   }
 
   getDays() {

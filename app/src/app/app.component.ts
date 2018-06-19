@@ -18,15 +18,15 @@ export class AppComponent implements OnInit {
               private router: Router,
               private loadingStateService: LoadingStateService) {
 
-    const that = this;
 
-    if (this.showMenu !== true) {
-      this.activatedRoute.queryParams.subscribe(params => {
-        if (params['admin'] === 'true') {
-          that.showMenu = true;
-        }
-      });
-    }
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['admin'] === 'true') {
+        localStorage.setItem('admin', 'true');
+        this.showMenu = true;
+      }
+    });
+
+    this.showMenu = localStorage.getItem('admin') === 'true' ? true : false;
   }
 
   ngOnInit() {

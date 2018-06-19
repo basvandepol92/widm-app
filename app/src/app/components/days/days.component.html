@@ -1,5 +1,10 @@
-<mat-card>
-  <h4 *ngIf="currentMember">{{ currentMember.name }} selecteer een dag om vragen te beantwoorden</h4>
+<mat-card class="avatarCard">
+  <h4 *ngIf="currentMember">
+    <div class="memberAvatar">
+      <img [src]="'../../../../assets/avatars/'+currentMember._id+'.png'">
+    </div>
+    <span class="selectDayTitle">{{ currentMember.name }} selecteer een dag om vragen te beantwoorden</span>
+  </h4>
   <h4 *ngIf="!currentMember">Selecteer een dag om vragen te beantwoorden</h4>
 </mat-card>
 <mat-card>
@@ -12,9 +17,9 @@
 
       {{ day.description | date:"EEEE dd MMMM" }}
       <div class="mat-secondary-container next_button">
-          <mat-icon>
-            arrow_right
-          </mat-icon>
+        <mat-icon>
+          arrow_right
+        </mat-icon>
       </div>
       <mat-divider *ngIf="!$last"></mat-divider>
     </mat-list-item>

@@ -21,6 +21,7 @@ export class QuestionsAnswerComponent implements OnInit {
   private members;
   public wieIsdeMol;
   private formSubmitted: boolean;
+  public currentMember;
 
   static setQuestion(questionArray?) {
     return {
@@ -55,8 +56,13 @@ export class QuestionsAnswerComponent implements OnInit {
         this.dayId = params['dayId'];
         this.memberId = params['memberId'];
         this.getQuestions();
+        this.getCurrentMember();
       });
     });
+  }
+
+  getCurrentMember() {
+    this.currentMember = this.members.filter(member => member._id === this.memberId)[0];
   }
 
   getQuestions() {

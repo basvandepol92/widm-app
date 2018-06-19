@@ -9,3 +9,9 @@
 mat-icon {
   padding-right: 16px;
 }
+
+.selectDayTitle {
+  text-align: center;
+  display: inherit;
+  padding-top: 16px;
+}

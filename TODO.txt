@@ -7,8 +7,6 @@ TODO:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
     - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
     - Loadingspinner on loading/creating and saving questions
-    - Who is answering the questions? + Add avatars
-    - Set show menu on localstorage
 
 TOWANT:
 - Create as PWA
@@ -58,3 +56,6 @@ DONE:
 - Validate if user already has done a question (on page load)
 - Implement avatars
 - WIDM logo on member-success is out of bounds
+- Set show menu on localstorage
+- Set view all menu's on localstorage
+- Who is answering the questions? + Add avatars

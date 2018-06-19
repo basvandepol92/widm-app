@@ -1,6 +1,7 @@
-<mat-card>
-  <h4>Maak vragen</h4>
-</mat-card>
+<div *ngIf="showView">
+  <mat-card>
+    <h4>Maak vragen</h4>
+  </mat-card>
 
   <div class="questions-create"
        fxLayout
@@ -13,23 +14,24 @@
       <div formArrayName="questions">
         <div class="question-card" *ngFor="let question of formData.controls; let i=index">
           <mat-card>
-          <div class="question-title_wrapper">
-            <span class="questionTitle">Vraag {{i + 1}}</span>
-            <button class="remove-question_btn" mat-button color="secondary"
-                    (click)="removeQuestion(i)" *ngIf="formData.controls.length > 1">
-              <mat-icon>
-                delete
-              </mat-icon>
-            </button>
-          </div>
+            <div class="question-title_wrapper">
+              <span class="questionTitle">Vraag {{i + 1}}</span>
+              <button class="remove-question_btn" mat-button color="secondary"
+                      (click)="removeQuestion(i)" *ngIf="formData.controls.length > 1">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+            </div>
 
-          <div [formGroupName]="i">
-            <app-answers [group]="question"></app-answers>
-          </div>
+            <div [formGroupName]="i">
+              <app-answers [group]="question"></app-answers>
+            </div>
           </mat-card>
         </div>
       </div>
-      <button class="saveQuestions question-buttons" mat-fab color="primary" type="submit" [disabled]="submitFormDisabled()">
+      <button class="saveQuestions question-buttons" mat-fab color="primary" type="submit"
+              [disabled]="submitFormDisabled()">
         <mat-icon>
           save
         </mat-icon>
@@ -41,6 +43,6 @@
       </mat-icon>
     </button>
   </div>
-
+</div>
 
 

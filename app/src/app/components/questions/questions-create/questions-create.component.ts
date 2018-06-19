@@ -17,6 +17,7 @@ export class QuestionsCreateComponent implements OnInit {
   public dayId: String;
   public questions: Array<String>;
   public formSubmitted: boolean;
+  showView = false;
 
   get formData() {
     return <FormArray>this.myForm.get('questions');
@@ -54,6 +55,8 @@ export class QuestionsCreateComponent implements OnInit {
   ngOnInit() {
     this.loadingStateService.loading(true);
     this.formSubmitted = false;
+
+    this.showView = localStorage.getItem('admin') === 'true' ? true : false;
 
     const question = QuestionsCreateComponent.setQuestion();
     this.myForm = this._fb.group({
