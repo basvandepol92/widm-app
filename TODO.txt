@@ -3,10 +3,13 @@ TODO:
     - Don't publish /config to git only to Heroku
 - Scores:
     - Scherm voor tussenstand van de kas? + counter animations
+    - Animated screens for scores
+    - Correct answers out of total with circular graph
 - Bugs:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
-    - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
+    - iPhone 5 member-succes full screen height
     - Loadingspinner on loading/creating and saving questions
+    - Text at questions and days when you already answered all the questions
 
 TOWANT:
 - Create as PWA
@@ -21,6 +24,7 @@ TOWANT:
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
     - Aggregate users in scores
+- ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
 
 DONE:
 - Move dist folder to root
