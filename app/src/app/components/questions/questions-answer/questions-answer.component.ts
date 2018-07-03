@@ -22,6 +22,7 @@ export class QuestionsAnswerComponent implements OnInit {
   public wieIsdeMol;
   private formSubmitted: boolean;
   public currentMember;
+  public alreadyAnswered: boolean;
 
   static setQuestion(questionArray?) {
     return {
@@ -42,6 +43,7 @@ export class QuestionsAnswerComponent implements OnInit {
               private membersService: MembersService,
               private loadingStateService: LoadingStateService) {
 
+    this.alreadyAnswered = false;
     this.setQuestions = this.setQuestions.bind(this);
   }
 
@@ -80,6 +82,7 @@ export class QuestionsAnswerComponent implements OnInit {
         duration: 1000
       });
 
+      this.alreadyAnswered = true;
       this.loadingStateService.loading(false);
       return;
     }
@@ -143,6 +146,14 @@ export class QuestionsAnswerComponent implements OnInit {
 
   submitFormDisabled() {
     return !this.isFormValid() || this.formSubmitted
+  }
+
+  showNoDaysAdded() {
+    return !this.myForm && this.alreadyAnswered === false;
+  }
+
+  showAlreadyAnswered() {
+    return !this.myForm && this.alreadyAnswered === true;
   }
 
 }

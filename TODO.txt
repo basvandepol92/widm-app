@@ -9,7 +9,7 @@ TODO:
     - Body shouldn't scroll on overlay (loadingspinner/member-succes)
     - iPhone 5 member-succes full screen height
     - Loadingspinner on loading/creating and saving questions
-    - Text at questions and days when you already answered all the questions
+
 
 TOWANT:
 - Create as PWA
@@ -63,3 +63,4 @@ DONE:
 - Set show menu on localstorage
 - Set view all menu's on localstorage
 - Who is answering the questions? + Add avatars
+- Text at questions and days when you already answered all the questions

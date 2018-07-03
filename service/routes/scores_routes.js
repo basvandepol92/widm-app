@@ -14,8 +14,8 @@ module.exports = (app, db) => {
 
     function getScores(req, res) {
         db.collection(COLLECTION).aggregate([
-            {$group : {"_id": "$member_id", "score": {$sum: "$score"}}}
-            ]).toArray(function (err, scores) {
+            {$group: {"_id": "$member_id", "score": {$sum: "$score"}}}
+        ]).toArray(function (err, scores) {
             if (err) {
                 res.send(ERROR);
                 return;
@@ -34,9 +34,12 @@ module.exports = (app, db) => {
                 return;
             }
 
-            let score = {
-              'score': member[0].markedAsMol || 0
-            };
+            let score = {}
+            if (member.length > 0) {
+                score = {
+                    'score': member[0].markedAsMol || 0
+                };
+            }
 
             res.send(score);
         });

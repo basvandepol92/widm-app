@@ -16,7 +16,7 @@ export class DaysComponent implements OnInit {
   public days: Day[];
   public memberId: string;
   private members: any;
-  public currentMember: Member;
+  public currentMember: any;
 
   constructor(private daysService: DaysService,
               private route: ActivatedRoute,
@@ -59,5 +59,9 @@ export class DaysComponent implements OnInit {
     }
 
     this.router.navigateByUrl(`/questions/${this.memberId}/${day._id}`);
+  }
+
+  showSelectQuestions() {
+    return !this.currentMember.answered_questions || this.currentMember && this.currentMember.answered_questions && this.days && (this.currentMember.answered_questions.length !== this.days.length);
   }
 }

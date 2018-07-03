@@ -7,8 +7,11 @@
   </div>
 </mat-card>
 
-<mat-card *ngIf="!myForm">
+<mat-card *ngIf="showNoDaysAdded()">
   <span>Helaas deze dag bevat nog geen vragen</span>
+</mat-card>
+<mat-card *ngIf="showAlreadyAnswered()">
+  <span>Je hebt de vragen van deze dag al beantwoord</span>
 </mat-card>
 
 <form *ngIf="myForm" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">

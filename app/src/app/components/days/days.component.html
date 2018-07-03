@@ -3,9 +3,9 @@
     <div class="memberAvatar">
       <img [src]="'../../../../assets/avatars/'+currentMember._id+'.png'">
     </div>
-    <span class="selectDayTitle">{{ currentMember.name }} selecteer een dag om vragen te beantwoorden</span>
+    <span *ngIf="showSelectQuestions()" class="selectDayTitle">{{ currentMember.name }} selecteer een dag om vragen te beantwoorden</span>
+    <span *ngIf="!showSelectQuestions()" class="selectDayTitle">{{ currentMember.name }} goed bezig je hebt alle vragen beantwoord</span>
   </h4>
-  <h4 *ngIf="!currentMember">Selecteer een dag om vragen te beantwoorden</h4>
 </mat-card>
 <mat-card>
   <mat-list *ngIf="days">
