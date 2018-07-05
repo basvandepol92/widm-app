@@ -118,6 +118,11 @@ mat-card, mat-accordion {
 .next_button {
   position: absolute;
   right: 0;
+  top: 0;
+}
+
+.next_button .mat-icon-button, .next_button .mat-icon {
+  line-height: 48px;
 }
 
 /* ======== QUESTIONS ========= */

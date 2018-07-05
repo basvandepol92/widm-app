@@ -1,13 +1,7 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-- Scores:
-    - Scherm voor tussenstand van de kas? + counter animations
-    - Animated screens for scores
-    - Correct answers out of total with circular graph
 - Bugs:
-    - Body shouldn't scroll on overlay (loadingspinner/member-succes)
-    - iPhone 5 member-succes full screen height
     - Loadingspinner on loading/creating and saving questions
 
 
@@ -25,6 +19,9 @@ TOWANT:
     - Mongodb aggregate via $lookup iso combining query's
     - Aggregate users in scores
 - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
+- Scherm voor tussenstand van de kas? + counter animations
+- Animated screens for scores
+- Correct answers out of total with circular graph
 
 DONE:
 - Move dist folder to root
@@ -64,3 +61,5 @@ DONE:
 - Set view all menu's on localstorage
 - Who is answering the questions? + Add avatars
 - Text at questions and days when you already answered all the questions
+- iPhone 5 member-succes full screen height
+- Body shouldn't scroll on overlay (loadingspinner/member-succes)

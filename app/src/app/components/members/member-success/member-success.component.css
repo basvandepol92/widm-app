@@ -1,7 +1,6 @@
 .memberSucces_wrapper {
   width: 100%;
   height: calc(100% - 20px);
-  position: absolute;
   z-index: 20;
   background: #000 url('../../../../assets/widm_back.jpg');
   background-size: 430px;
@@ -10,6 +9,8 @@
   background-repeat:no-repeat;
   padding-top: 20px;
   overflow: hidden;
+  position: fixed;
+  top: 0;
 }
 
 .memberSucces_wrapper .memberAvatar {
