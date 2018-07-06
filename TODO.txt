@@ -1,9 +1,6 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-- Bugs:
-    - Loadingspinner on loading/creating and saving questions
-
 
 TOWANT:
 - Create as PWA
@@ -14,7 +11,6 @@ TOWANT:
 - i18n for days
 - Toaster text on day create and remove aren't displayed with nice dateformatting
 - Active state menu doesn't reflect the correct current page
-- Navigational bar at the bottom (for iOS, which doesn't have a back button)
 - MongoDB:
     - Mongodb aggregate via $lookup iso combining query's
     - Aggregate users in scores
@@ -22,6 +18,7 @@ TOWANT:
 - Scherm voor tussenstand van de kas? + counter animations
 - Animated screens for scores
 - Correct answers out of total with circular graph
+- Loadingspinner on loading/creating and saving questions
 
 DONE:
 - Move dist folder to root
@@ -63,3 +60,4 @@ DONE:
 - Text at questions and days when you already answered all the questions
 - iPhone 5 member-succes full screen height
 - Body shouldn't scroll on overlay (loadingspinner/member-succes)
+- Back button for iOS

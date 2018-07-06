@@ -26,6 +26,7 @@ import { ScoresTopComponent } from './components/scores/scores-top/scores-top.co
 import { LoadingStateComponent } from './components/generic/loading-state/loading-state.component';
 import { MemberSuccessComponent } from './components/members/member-success/member-success.component';
 import { ScoresTotalCorrectWidmComponent } from './components/scores-total-correct-widm/scores-total-correct-widm.component';
+import { BackButtonComponent } from './components/generic/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ScoresTotalCorrectWidmComponent } from './components/scores-total-corre
     ScoresTopComponent,
     LoadingStateComponent,
     MemberSuccessComponent,
-    ScoresTotalCorrectWidmComponent
+    ScoresTotalCorrectWidmComponent,
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
