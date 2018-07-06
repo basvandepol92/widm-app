@@ -5,13 +5,6 @@
   z-index: 10;
 }
 
-.selectedMol {
-  background: rgba(255,255,255, 0.2) url('../../../../assets/widm_logo.png');
-  background-size: 120px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .answerTitle {
   margin: 10px 0 0 0;
   text-align: center;
@@ -19,4 +12,11 @@
 
 .question_answer mat-grid-tile:hover {
   background: none;
+}
+
+.question_answer mat-grid-tile.selectedMol {
+  background: rgba(255,255,255, 0.2) url('../../../../assets/widm_logo.png');
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
