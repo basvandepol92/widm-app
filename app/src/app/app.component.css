@@ -5,6 +5,7 @@ body {
   background: #000;
   margin: 0;
   height: 100vh;
+  -webkit-overflow-scrolling: touch
 }
 
 h4 {
