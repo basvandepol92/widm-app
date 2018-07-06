@@ -17,3 +17,6 @@
   text-align: center;
 }
 
+.question_answer mat-grid-tile:hover {
+  background: none;
+}
