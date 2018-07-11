@@ -2,12 +2,9 @@ TODO:
 - General:
     - Don't publish /config to git only to Heroku
 - Animated screens for scores
-    - Improve animation
+    - Improve animation (smoothness)
     - Background (white -> black)
-    - Styling and title
-    - Don't show header
     - Add sounds
-- Preload images
 
 TOWANT:
 - Create as PWA
@@ -67,3 +64,7 @@ DONE:
 - iPhone 5 member-succes full screen height
 - Body shouldn't scroll on overlay (loadingspinner/member-succes)
 - Back button for iOS
+- Animated screen close view by pressing a button
+- Animated screen Preload images
+- Animated screen Don't show header
+- Animated screen Styling and title

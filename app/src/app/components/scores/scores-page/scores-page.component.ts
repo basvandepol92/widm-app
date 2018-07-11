@@ -7,8 +7,9 @@ import {ScoresService} from "../../../services/scores.service";
   styleUrls: ['./scores-page.component.css']
 })
 export class ScoresPageComponent implements OnInit {
+  public expanded: boolean;
+  public showView: boolean;
 
-  showView = false;
 
   constructor(private scoresService: ScoresService) { }
 
@@ -17,7 +18,7 @@ export class ScoresPageComponent implements OnInit {
   }
 
   animateScores(view) {
+    this.expanded = false;
     this.scoresService.showScoreAnimation(view);
   }
-
 }

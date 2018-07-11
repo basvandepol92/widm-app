@@ -1,12 +1,28 @@
 <div class="scores_animation-wrapper"
-     [ngClass]="{'green-background': background === 'GREEN_BACKGROUND',
-     'red-background': background === 'RED_BACKGROUND' }"
      *ngIf="showScoreAnimation">
 
-      <div *ngIf="showScore"
-           [ngSwitch]="type">
-        <app-scores-widm *ngSwitchCase="'topWidm'"></app-scores-widm>
-        <app-scores-top *ngSwitchCase="'topScore'"></app-scores-top>
-        <app-scores-total-correct-widm *ngSwitchCase="'correctWidm'"></app-scores-total-correct-widm>
+  <div [ngClass]="{'green-background': background === 'GREEN_BACKGROUND',
+     'red-background': background === 'RED_BACKGROUND' }"
+       class="scores_animation-animation-background">
+
+    <div *ngIf="showScore && type"
+         [ngSwitch]="type">
+      <div *ngSwitchCase="'topWidm'">
+        <h2>Top 3 hoogste scores</h2>
+        <app-scores-widm></app-scores-widm>
       </div>
+
+      <div *ngSwitchCase="'topScore'">
+        <h2>Meest benoemd als de Mol</h2>
+        <app-scores-top></app-scores-top>
+      </div>
+
+      <div *ngSwitchCase="'correctWidm'">
+        <h2>Aantal correcte antwoorden 'De Mol'</h2>
+        <app-scores-total-correct-widm></app-scores-total-correct-widm>
+      </div>
+    </div>
+  </div>
+
+  <div class="scores_animation-logo"></div>
 </div>

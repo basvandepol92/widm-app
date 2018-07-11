@@ -19,6 +19,7 @@ export class ScoresAnimationComponent implements OnInit {
     this.showScore = false;
     this.background = this.CONST.init;
     this.setBackground = this.setBackground.bind(this);
+    this.setKeyButton = this.setKeyButton.bind(this);
   }
 
   get CONST() {
@@ -26,36 +27,19 @@ export class ScoresAnimationComponent implements OnInit {
       init: 'INIT',
       positive: 'GREEN_BACKGROUND',
       negative: 'RED_BACKGROUND',
-      animateTimes: 11
+      animateSpeed: 750,
     }
   }
 
   ngOnInit() {
     this.scoresService.change.subscribe(scoreType => {
-      const that = this;
-      this.type = scoreType;
       this.showScoreAnimation = true;
-
-      setTimeout(() => {
-        that.startAnimation(that.setBackground, 200, that.CONST.animateTimes);
-      }, 500)
+      this.startAnimation().then(() => this.showScores(scoreType));
     });
   }
 
-  startAnimation(callback, factor, times) {
-    const that = this
-    let internalCallback = function (tick, counter) {
-      return function () {
-        if (--tick >= 0) {
-          window.setTimeout(internalCallback, ++counter * factor);
-          callback();
-        } else {
-          that.showScores();
-        }
-      }
-    }(times, 0);
-
-    window.setTimeout(internalCallback, factor);
+  timeout(ms) {
+    return new Promise(res => setTimeout(res, ms));
   }
 
   setBackground() {
@@ -70,19 +54,66 @@ export class ScoresAnimationComponent implements OnInit {
     this.background = this.CONST.negative;
   }
 
-  showScores() {
-    const that = this;
+  showScores(scoreType) {
     this.animateInit();
+    this.type = scoreType;
     this.showScore = true;
+    document.addEventListener("keyup", this.setKeyButton);
+  }
 
-
-    setTimeout(() => {
-      that.showScore = false;
-      that.showScoreAnimation = false;
-    }, 7500)
+  setKeyButton(e) {
+    if (e.which === 32) {
+      this.showScore = false;
+      this.showScoreAnimation = false;
+      document.removeEventListener("keyup", this.setKeyButton);
+    }
   }
 
   animateInit() {
     this.background = this.CONST.init;
+  }
+
+  async startAnimation() {
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateRed();
+
+    await this.timeout(this.CONST.animateSpeed);
+    this.animateGreen();
   }
 }

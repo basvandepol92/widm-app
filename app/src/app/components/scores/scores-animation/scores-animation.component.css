@@ -1,23 +1,51 @@
 .scores_animation-wrapper {
   position: fixed;
-  height: calc(100vh - 64px);
-  top: 64px;
+  height: 100vh;
+  top: 0;
   display:block;
   z-index: 20;
-  background: black;
   width: 100%;
-  background-size:cover;
+  background: #000 url("../../../../assets/bg.png");
+  background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
 }
 
-.scores_animation-wrapper.green-background {
+.scores_animation-wrapper h2 {
+  text-align: center;
+  padding: 40px 0;
+}
+
+:host >>> p.totalCorrectWIDMAnswers{
+  font-size: 20rem;
+  line-height: 20rem;;
+}
+
+.scores_animation-logo {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000 url("../../../../assets/widm_logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scores_animation-animation-background {
+  position:fixed;
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+}
+
+.green-background {
   background: url("../../../../assets/widm_green.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.scores_animation-wrapper.red-background {
+.red-background {
   background: url("../../../../assets/widm_red.png");
   background-size: cover;
   background-repeat: no-repeat;

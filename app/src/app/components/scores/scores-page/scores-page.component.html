@@ -3,7 +3,7 @@
 </mat-card>
 
 <mat-accordion *ngIf="showView">
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="expanded">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Score lijst
@@ -12,7 +12,7 @@
     <app-scores-overview></app-scores-overview>
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="expanded">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Punten
@@ -31,7 +31,7 @@
 
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="expanded">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Meest benoemd als de Mol
@@ -50,7 +50,7 @@
 
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="expanded">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Aantal correcte antwoorden 'De Mol'

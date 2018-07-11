@@ -1,6 +1,11 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
 /* ======== OVERWRITES ========= */
+
+#preload-green-background { background: url('../assets/widm_green.png') no-repeat -9999px -9999px; }
+#preload-red-background { background: url('../assets/widm_red.png') no-repeat -9999px -9999px; }
+#preload-logo { background: url('../assets/widm_logo.png') no-repeat -9999px -9999px; }
+
 body {
   background: #000;
   margin: 0;
