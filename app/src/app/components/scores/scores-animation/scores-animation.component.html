@@ -11,12 +11,12 @@
        class="component_wrapper"
        [ngSwitch]="type">
     <div *ngSwitchCase="'topWidm'">
-      <h2>Top 3 hoogste scores</h2>
+      <h2>Meest benoemd als de Mol</h2>
       <app-scores-widm></app-scores-widm>
     </div>
 
     <div *ngSwitchCase="'topScore'">
-      <h2>Meest benoemd als de Mol</h2>
+      <h2>Top 3 hoogste scores</h2>
       <app-scores-top></app-scores-top>
     </div>
 
