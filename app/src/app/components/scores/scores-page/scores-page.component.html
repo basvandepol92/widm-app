@@ -41,13 +41,6 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <app-scores-widm></app-scores-widm>
-
-    <button mat-icon-button class="animate-score_button" (click)="animateScores('topWidm')">
-      <mat-icon>
-        play_circle_filled
-      </mat-icon>
-    </button>
-
   </mat-expansion-panel>
 
   <mat-expansion-panel [expanded]="expanded">
@@ -57,12 +50,33 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <app-scores-total-correct-widm></app-scores-total-correct-widm>
+  </mat-expansion-panel>
 
-    <button mat-icon-button class="animate-score_button" (click)="animateScores('correctWidm')">
+  <mat-expansion-panel [expanded]="expanded">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Animaties
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <button mat-icon-button (click)="animateScores('topWidm')">
       <mat-icon>
         play_circle_filled
       </mat-icon>
-    </button>
+    </button> Meest benoemd als de Mol
+
+    <button mat-icon-button (click)="animateScores('correctWidm')">
+      <mat-icon>
+        play_circle_filled
+      </mat-icon>
+    </button> Aantal correcte antwoorden 'De Mol'
+
+    <button mat-icon-button (click)="animateScores('topScore')">
+      <mat-icon>
+        play_circle_filled
+      </mat-icon>
+    </button> Top scorers
 
   </mat-expansion-panel>
 </mat-accordion>

@@ -43,6 +43,7 @@
   transition: all 0.7s linear !important;
 }
 
+
 .green-background {
   background: url("../../../../assets/widm_green.png");
   background-size: cover;
@@ -53,4 +54,24 @@
   background: url("../../../../assets/widm_red.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.no-background {
+  opacity: 0;
+}
+
+.component_wrapper {
+  opacity: 0;
+  -webkit-transition: all 0.7s linear !important;
+  -moz-transition: all 0.7s linear !important;
+  -o-transition: all 0.7s linear !important;
+  transition: all 0.7s linear !important;
+}
+
+.show-component-wrapper {
+  opacity: 100;
+  -webkit-transition: all 1s linear !important;
+  -moz-transition: all 1s linear !important;
+  -o-transition: all 1s linear !important;
+  transition: all 1s linear !important;
 }

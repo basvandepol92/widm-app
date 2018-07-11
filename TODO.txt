@@ -1,9 +1,6 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
-- Animated screens for scores
-    - Background (white -> black)
-    - Add sounds
 
 TOWANT:
 - Create as PWA
@@ -68,3 +65,6 @@ DONE:
 - Animated screen Don't show header
 - Animated screen Styling and title
 - Animated screen smoother animation
+- Animated screens for scores
+- Background (white -> black)
+- Add sounds

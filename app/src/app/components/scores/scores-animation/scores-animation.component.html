@@ -2,25 +2,27 @@
      *ngIf="showScoreAnimation">
 
   <div [ngClass]="{'green-background': background === 'GREEN_BACKGROUND',
-     'red-background': background === 'RED_BACKGROUND' }"
+     'red-background': background === 'RED_BACKGROUND',
+      'no-background': background === 'NO_BACKGROUND'}"
        class="scores_animation-animation-background">
+  </div>
 
-    <div *ngIf="showScore && type"
-         [ngSwitch]="type">
-      <div *ngSwitchCase="'topWidm'">
-        <h2>Top 3 hoogste scores</h2>
-        <app-scores-widm></app-scores-widm>
-      </div>
+  <div [ngClass]="{'show-component-wrapper': background === 'SHOW_SCORE'}"
+       class="component_wrapper"
+       [ngSwitch]="type">
+    <div *ngSwitchCase="'topWidm'">
+      <h2>Top 3 hoogste scores</h2>
+      <app-scores-widm></app-scores-widm>
+    </div>
 
-      <div *ngSwitchCase="'topScore'">
-        <h2>Meest benoemd als de Mol</h2>
-        <app-scores-top></app-scores-top>
-      </div>
+    <div *ngSwitchCase="'topScore'">
+      <h2>Meest benoemd als de Mol</h2>
+      <app-scores-top></app-scores-top>
+    </div>
 
-      <div *ngSwitchCase="'correctWidm'">
-        <h2>Aantal correcte antwoorden 'De Mol'</h2>
-        <app-scores-total-correct-widm></app-scores-total-correct-widm>
-      </div>
+    <div *ngSwitchCase="'correctWidm'">
+      <h2>Aantal correcte antwoorden 'De Mol'</h2>
+      <app-scores-total-correct-widm></app-scores-total-correct-widm>
     </div>
   </div>
 
