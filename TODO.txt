@@ -2,7 +2,6 @@ TODO:
 - General:
     - Don't publish /config to git only to Heroku
 - Animated screens for scores
-    - Improve animation (smoothness)
     - Background (white -> black)
     - Add sounds
 
@@ -68,3 +67,4 @@ DONE:
 - Animated screen Preload images
 - Animated screen Don't show header
 - Animated screen Styling and title
+- Animated screen smoother animation
