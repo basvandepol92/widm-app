@@ -1,0 +1,24 @@
+.scores_animation-wrapper {
+  position: fixed;
+  height: calc(100vh - 64px);
+  top: 64px;
+  display:block;
+  z-index: 20;
+  background: black;
+  width: 100%;
+  background-size:cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.scores_animation-wrapper.green-background {
+  background: url("../../../../assets/widm_green.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scores_animation-wrapper.red-background {
+  background: url("../../../../assets/widm_red.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

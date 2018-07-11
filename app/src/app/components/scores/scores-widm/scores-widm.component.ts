@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MembersService} from "../../../services/members.service";
+import {ScoresService} from "../../../services/scores.service";
 
 @Component({
   selector: 'app-scores-widm',
@@ -9,7 +10,8 @@ import {MembersService} from "../../../services/members.service";
 export class ScoresWidmComponent implements OnInit {
   public members;
 
-  constructor(private membersService: MembersService) {
+  constructor(private membersService: MembersService,
+              private scoresService: ScoresService) {
   }
 
   ngOnInit() {
@@ -28,5 +30,4 @@ export class ScoresWidmComponent implements OnInit {
         .slice(0, 3);
     }
   }
-
 }

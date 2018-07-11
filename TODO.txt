@@ -1,6 +1,13 @@
 TODO:
 - General:
     - Don't publish /config to git only to Heroku
+- Animated screens for scores
+    - Improve animation
+    - Background (white -> black)
+    - Styling and title
+    - Don't show header
+    - Add sounds
+- Preload images
 
 TOWANT:
 - Create as PWA
@@ -16,7 +23,6 @@ TOWANT:
     - Aggregate users in scores
 - ExpressionChangedAfterItHasBeenCheckedError on NGIF for loading Spinner
 - Scherm voor tussenstand van de kas? + counter animations
-- Animated screens for scores
 - Correct answers out of total with circular graph
 - Loadingspinner on loading/creating and saving questions
 

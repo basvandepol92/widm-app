@@ -39,7 +39,6 @@ export class MemberSuccessComponent implements OnInit {
       this.membersService.getMembersArray().then(members => {
         this.members =  members;
 
-
         this.membersService.change.subscribe(memberId => {
           this.getCurrentMember(memberId);
         });

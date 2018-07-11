@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ScoresService} from "../../services/scores.service";
+import {ScoresService} from "../../../services/scores.service";
 
 @Component({
   selector: 'app-scores-total-correct-widm',
