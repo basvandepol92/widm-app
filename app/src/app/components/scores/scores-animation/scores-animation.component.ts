@@ -20,9 +20,8 @@ export class ScoresAnimationComponent implements OnInit {
     this.showScore = false;
     this.background = this.CONST.init;
     this.setBackground = this.setBackground.bind(this);
-    this.audio = new Audio('assets/sound.mp3');
-    this.audio.load();
 
+    this.createAudio();
   }
 
   get CONST() {
@@ -43,6 +42,21 @@ export class ScoresAnimationComponent implements OnInit {
       this.audio.play();
       this.startAnimation().then(() => this.showScores());
     });
+  }
+
+  createAudio() {
+    this.audio = new Audio('assets/sound.mp3');
+    this.resetAudio();
+    this.audio.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+
+    this.audio.load();
+  }
+
+  resetAudio() {
+    this.audio.currentTime = 0;
   }
 
   timeout(ms) {
@@ -70,6 +84,7 @@ export class ScoresAnimationComponent implements OnInit {
     this.showScore = false;
     this.showScoreAnimation = false;
     this.audio.pause();
+    this.resetAudio();
   }
 
   animateInit() {
