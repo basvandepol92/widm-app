@@ -7,6 +7,18 @@
        class="scores_animation-animation-background">
   </div>
 
+  <div class="scores_animation-logo"></div>
+
+  <div class="close_button"
+       [ngClass]="{'show_close_button': background === 'SHOW_SCORE'}">
+    <button mat-icon-button
+            (click)="closeButton()">
+      <mat-icon>
+        close
+      </mat-icon>
+    </button>
+  </div>
+
   <div [ngClass]="{'show-component-wrapper': background === 'SHOW_SCORE'}"
        class="component_wrapper"
        [ngSwitch]="type">
@@ -26,5 +38,5 @@
     </div>
   </div>
 
-  <div class="scores_animation-logo"></div>
+
 </div>

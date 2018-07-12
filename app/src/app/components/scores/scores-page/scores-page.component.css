@@ -9,3 +9,12 @@
   display: block;
   height: 20px;
 }
+
+.select_animation {
+  padding: 0;
+  margin: 0;
+}
+.select_animation li{
+  list-style-type: none;
+  cursor: pointer;
+}

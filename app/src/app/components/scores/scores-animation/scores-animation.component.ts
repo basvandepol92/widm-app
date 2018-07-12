@@ -20,7 +20,6 @@ export class ScoresAnimationComponent implements OnInit {
     this.showScore = false;
     this.background = this.CONST.init;
     this.setBackground = this.setBackground.bind(this);
-    this.setKeyButton = this.setKeyButton.bind(this);
     this.audio = new Audio('assets/sound.mp3');
     this.audio.load();
 
@@ -65,16 +64,12 @@ export class ScoresAnimationComponent implements OnInit {
 
   showScores() {
     this.background = 'SHOW_SCORE';
-    document.addEventListener("keyup", this.setKeyButton);
   }
 
-  setKeyButton(e) {
-    if (e.which === 32) {
-      this.showScore = false;
-      this.showScoreAnimation = false;
-      this.audio.pause();
-      document.removeEventListener("keyup", this.setKeyButton);
-    }
+  closeButton() {
+    this.showScore = false;
+    this.showScoreAnimation = false;
+    this.audio.pause();
   }
 
   animateInit() {
