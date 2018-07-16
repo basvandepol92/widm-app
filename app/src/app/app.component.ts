@@ -41,4 +41,17 @@ export class AppComponent implements OnInit {
       this.showLoading = showLoading;
     });
   }
+
+  toggleMenu() {
+    let admin = localStorage.getItem('admin');
+
+    if(admin === 'true') {
+      localStorage.setItem('admin', 'false');
+      this.showMenu = false;
+      return;
+    }
+
+    localStorage.setItem('admin', 'true');
+    this.showMenu = true;
+  }
 }
