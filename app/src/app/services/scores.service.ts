@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class ScoresService {
   private score;
   @Output() change: EventEmitter<any> = new EventEmitter();
+  @Output() showFinaleEmitter: EventEmitter<any> = new EventEmitter();
   constructor(private http:HttpClient) { }
 
   private scoresUrl = `${environment.url}/api/scores`;
@@ -29,6 +30,10 @@ export class ScoresService {
   showScoreAnimation(score) {
     this.score = score;
     this.change.emit(this.score);
+  }
+
+  showFinale(showFinale) {
+    this.showFinaleEmitter.emit(showFinale);
   }
 }
 

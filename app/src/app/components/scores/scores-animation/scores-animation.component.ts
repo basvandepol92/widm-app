@@ -142,5 +142,10 @@ export class ScoresAnimationComponent implements OnInit {
     this.animateInit();
 
     await this.timeout(this.CONST.animateSpeed);
+
+    if(this.type === 'finale') {
+      this.audio.pause();
+      this.scoresService.showFinale(true);
+    }
   }
 }
