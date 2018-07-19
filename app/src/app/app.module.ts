@@ -30,6 +30,7 @@ import { BackButtonComponent } from './components/generic/back-button/back-butto
 import { ScoresAnimationComponent } from './components/scores/scores-animation/scores-animation.component';
 import { ScoresFinaleComponent } from './components/scores/scores-finale/scores-finale.component';
 import { ScoresTopCorrectWidmComponent } from './components/scores/scores-top-correct-widm/scores-top-correct-widm.component';
+import { ScoresMarkedAsMolComponent } from './components/scores/scores-marked-as-mol/scores-marked-as-mol.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ScoresTopCorrectWidmComponent } from './components/scores/scores-top-co
     BackButtonComponent,
     ScoresAnimationComponent,
     ScoresFinaleComponent,
-    ScoresTopCorrectWidmComponent
+    ScoresTopCorrectWidmComponent,
+    ScoresMarkedAsMolComponent
   ],
   imports: [
     BrowserModule,
