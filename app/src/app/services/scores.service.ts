@@ -13,6 +13,7 @@ export class ScoresService {
 
   private scoresUrl = `${environment.url}/api/scores`;
   private totalCorrectWidmScores = `${environment.url}/api/scores/total-widm-scores`;
+  private totalCounterCorrectWIDM = `${environment.url}/api/scores/total-top-widm-scores`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin':'*'
@@ -25,6 +26,10 @@ export class ScoresService {
 
   getTotalCorrectWIDM() {
     return this.http.get(this.totalCorrectWidmScores, this.httpOptions)
+  }
+
+  getCounterCorrectWIDM() {
+    return this.http.get(this.totalCounterCorrectWIDM, this.httpOptions);
   }
 
   showScoreAnimation(score) {

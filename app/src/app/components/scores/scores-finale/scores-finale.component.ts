@@ -9,10 +9,10 @@ import {ScoresService} from "../../../services/scores.service";
 })
 export class ScoresFinaleComponent implements OnInit {
 
-  public members;
-  public shownMol;
-  private drumRoll;
-  private theMol;
+  public members: any;
+  public shownMol: any;
+  private drumRoll: any;
+  private theMol: any;
 
   constructor(private membersService: MembersService,
               private scoresService: ScoresService) { }
@@ -21,7 +21,7 @@ export class ScoresFinaleComponent implements OnInit {
     const molId = "5b3a4bceb0057c2ff216a3e8";
     this.membersService.getMembersArray(true).then(members => {
       this.members = members;
-      this.theMol = members.filter(a => a._id === molId)[0];
+      this.theMol = this.members.filter(a => a._id === molId)[0];
 
       this.scoresService.showFinaleEmitter.subscribe(showFinale => {
         if(showFinale) {
