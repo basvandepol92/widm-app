@@ -1,0 +1,13 @@
+.selectedMol {
+  -webkit-transition: all 0.7s linear !important;
+  -moz-transition: all 0.7s linear !important;
+  -o-transition: all 0.7s linear !important;
+  transition: all 0.7s linear !important;
+}
+
+.topWIDM {
+  margin: 0 auto;
+  width: 60%;
+  position: relative;
+  display: block;
+}

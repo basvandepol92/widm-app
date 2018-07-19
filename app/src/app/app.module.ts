@@ -28,6 +28,8 @@ import { MemberSuccessComponent } from './components/members/member-success/memb
 import { ScoresTotalCorrectWidmComponent } from './components/scores/scores-total-correct-widm/scores-total-correct-widm.component';
 import { BackButtonComponent } from './components/generic/back-button/back-button.component';
 import { ScoresAnimationComponent } from './components/scores/scores-animation/scores-animation.component';
+import { ScoresFinaleComponent } from './components/scores/scores-finale/scores-finale.component';
+import { ScoresTopCorrectWidmComponent } from './components/scores/scores-top-correct-widm/scores-top-correct-widm.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { ScoresAnimationComponent } from './components/scores/scores-animation/s
     MemberSuccessComponent,
     ScoresTotalCorrectWidmComponent,
     BackButtonComponent,
-    ScoresAnimationComponent
+    ScoresAnimationComponent,
+    ScoresFinaleComponent,
+    ScoresTopCorrectWidmComponent
   ],
   imports: [
     BrowserModule,

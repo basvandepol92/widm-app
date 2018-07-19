@@ -1,0 +1,11 @@
+<div *ngIf="shownMol"
+    class="selectedMol">
+
+  <div class="topWIDM WIDM_first">
+    <div class="topWidm_Avatar">
+      <img [src]="'../../../../assets/avatars/'+shownMol._id+'.png'">
+    </div>
+    <div class="topWidm_title">{{shownMol.name}}</div>
+  </div>
+
+</div>
