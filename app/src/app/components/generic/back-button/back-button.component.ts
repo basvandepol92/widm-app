@@ -11,7 +11,8 @@ export class BackButtonComponent implements OnInit {
   constructor(private _location: Location) {}
 
   ngOnInit() {
-    this.showButton = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    //this.showButton = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    this.showButton = true;
   }
 
   navigateBack() {
